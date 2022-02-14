@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, NgForm } from "@angular/forms";
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { CategoryService } from 'src/app/service/category.service';
 
 @Component({
   selector: 'app-add-livre',
@@ -13,16 +14,18 @@ export class AddLivreComponent implements OnInit {
   adminData: any;
   formulaire: FormGroup;
   user: any;
+  allCategory
   id: any;
   chaine : string;
   loginData: any;
   userId:any;
   userngForm: NgForm;
-  
+
   submitted = false;
 
   constructor(
-    public service: LivreserviceService,
+    public livreService: LivreserviceService,
+    public categoryService : CategoryService,
     public  route: ActivatedRoute,
     public router : Router,
     public toast: ToastrService,
@@ -30,7 +33,8 @@ export class AddLivreComponent implements OnInit {
 
   ngOnInit(): void {
 
-
+    this.getCategory();
+    console.log('tes'+this.allCategory);
     this.formulaire = this.formBuilder.group({
 
       photo: ['', Validators.required],
@@ -43,7 +47,7 @@ export class AddLivreComponent implements OnInit {
       format: ['', Validators.required],
       somaire: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      
+
   },);
   }
 
@@ -59,18 +63,19 @@ export class AddLivreComponent implements OnInit {
     if (this.formulaire.invalid) {
         return;
     }
-    var obj: { [id: string]: any} = {};
-   // obj.id = fg.value.profile; 
-    fg.value.profile = obj;
-     fg.value.userId =this.loginData.id
-     
+    var obj: { [idCategory: string]: any} = {};
+    obj['idCategory'] = fg.value.category;
+    fg.value.category = obj;
+
+
    console.log(JSON.stringify(fg.value));
 
-   this.service.addLivre(fg.value).subscribe(
-     
+   this.livreService.addLivre(fg.value).subscribe(
+
      (data)=>{
-
-
+      this.toast.success("Ajout effectuer avec succès ");
+      this.router.navigateByUrl("/listlivres");
+      //   console.log("helle ++++++++++++", data);
       // if(data==="email"){
       //   console.log("incorrect email");
       //   this.toast.error("Cet email existe déja ");
@@ -92,11 +97,18 @@ export class AddLivreComponent implements OnInit {
      }
 
    )
-    
+
   }
   showToast(){
     this.toast.success("Ajout effectuer avec succes !!!");
   }
+getCategory(){
+  this.categoryService.getAllCategory().subscribe((data)=>{
+    this.allCategory = data;
+    console.log("ok"+data);
+  })
+};
+
   logOut(){
     localStorage.removeItem('isLogin');
   this.router.navigateByUrl('/');

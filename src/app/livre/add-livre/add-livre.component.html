@@ -5,7 +5,7 @@
             <div class="form-panel" style="padding: 3%;">
                 <form [formGroup]="formulaire" (ngSubmit)="submitForm(formulaire)" novalidate class="form-horizontal style-form">
                 <div class="form-group">
-                        
+
                         <label class="control-label col-md-2">Image du livre</label>
                         <div class="col-md-3">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
@@ -29,9 +29,9 @@
                             </div>
                         </div>
 
-                          
+
                     </div>
-                    <div class="form-group padding">  
+                    <div class="form-group padding">
                         <label class="control-label col-md-2">Contenue du livre</label>
                         <div class="controls col-md-5">
                           <div class="fileupload fileupload-new" data-provides="fileupload">
@@ -73,24 +73,24 @@
                         </div>
                     </div>
                     </div>
-                 
+
                     <div class="form-group">
                         <label class="control-label col-md-2">Catégorie</label>
                         <div class="col-md-3 col-xs-11">
-                            <select class="form-control form-control-inline input-medium " 
+                            <select class="form-control form-control-inline input-medium "
                                 type="text" value="" formControlName="category"  required>
-                            <option value="cate">item1</option>
-                       </select>    
+                            <option *ngFor="let category of allCategory"  value="{{category.idCategory}}">{{category.category}}</option>
+                       </select>
                         </div>
                         <div>
                         <label class="control-label col-md-2">Format</label>
                         <div class="col-md-3 col-xs-11">
-                            <select class="form-control form-control-inline input-medium " 
+                            <select class="form-control form-control-inline input-medium "
                             type="text" value="" formControlName="format"  required>
-                        <option value="cate">item1</option>
-                         </select>    
-                        </div> 
-                    </div>                      
+                        <option value="Audio">item1</option>
+                         </select>
+                        </div>
+                    </div>
                     </div>
                     <div class="form-group">
 
@@ -105,7 +105,7 @@
                             type="text" value="" formControlName="description" ></textarea>
                     </div>
                     </div>
-                   
+
                     <button type="submit" class="btn btn-theme btn-file" [disabled]="" >Enregistrer</button>
                 </form>
             </div>
