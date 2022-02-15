@@ -11,16 +11,10 @@ import { CategoryService } from 'src/app/service/category.service';
   styleUrls: ['./add-livre.component.css']
 })
 export class AddLivreComponent implements OnInit {
-  adminData: any;
   formulaire: FormGroup;
-  user: any;
-  allCategory
-  id: any;
-  chaine : string;
-  loginData: any;
-  userId:any;
-  userngForm: NgForm;
-
+  allCategory : any;
+  public imgfile : any = File;
+  public livrefile : any = File;
   submitted = false;
 
   constructor(
@@ -54,18 +48,38 @@ export class AddLivreComponent implements OnInit {
   get f() { return this.formulaire.controls; }
 
 
-
+ imgSelect(event){
+  const img = event.target.files[0];
+ this.imgfile =img;
+}
+// livreSelect(event){
+//   const livre = event.target.files[0];
+//   this.imgfile.get('livre').setValue(livre);
+//   console.log(this.imgfile);
+// }
 
   submitForm(fg : FormGroup){
+
+    var obj: { [idCategory: string]: any} = {};
+    obj['idCategory'] = fg.value.category;
+    fg.value.category = obj;
+    const data = fg.value;
+    const formData = new FormData();
+    formData.append('data',JSON.stringify(data) )
+    formData.append('photo',this.imgfile);
+    console.log("test de data"+formData.get('photo'));
+    this.livreService.addLivre(formData).subscribe((data)=>{
+      console.log(data)
+    })
+    // formData.append('livre',this.livrefile);
+
     this.submitted = true;
     console.log(this.formulaire)
     // stop here if form is invalid
     if (this.formulaire.invalid) {
         return;
     }
-    var obj: { [idCategory: string]: any} = {};
-    obj['idCategory'] = fg.value.category;
-    fg.value.category = obj;
+
 
 
    console.log(JSON.stringify(fg.value));
@@ -75,30 +89,15 @@ export class AddLivreComponent implements OnInit {
      (data)=>{
       this.toast.success("Ajout effectuer avec succès ");
       this.router.navigateByUrl("/listlivres");
-      //   console.log("helle ++++++++++++", data);
-      // if(data==="email"){
-      //   console.log("incorrect email");
-      //   this.toast.error("Cet email existe déja ");
-
-      // }else if (data==="telephone"){
-      //   console.log("incorrect telephone");
-      //   this.toast.error("Ce téléphone existe déja ");
-
-      // }else if (data==="login"){
-      //   console.log("incorrect login");
-      //   this.toast.error("Ce login existe déja ");
-      // }
-
-      // else{
-      //   this.router.navigateByUrl("/listAdmins");
-      //   console.log("helle ++++++++++++", data);
-      // }
 
      }
 
    )
 
   }
+
+
+
   showToast(){
     this.toast.success("Ajout effectuer avec succes !!!");
   }

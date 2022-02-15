@@ -14,13 +14,15 @@ export class LivreserviceService {
 
   constructor(
     private http : HttpClient)
-     { }
+     {
+
+      }
 
      //-------------------------------------------------------Gestion livre livre --------------
 
-    addLivre(data:any){
+    addLivre(formData:FormData){
 
-      return this.http.post(this.url+"/ajouter/", data, {responseType:"text"});
+      return this.http.post(this.url+"/ajouter/", formData, {responseType:"text"});
     }
     getAllLivre(){
       return this.http.get(this.url +"/lister");
