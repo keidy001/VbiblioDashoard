@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpEvent, HttpErrorResponse, HttpEventType } from  '@angular/common/http';
 import { map } from  'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,14 +14,14 @@ export class LivreserviceService {
   constructor(
     private http : HttpClient)
      {
-
+        this.http = http;
       }
 
      //-------------------------------------------------------Gestion livre livre --------------
 
-    addLivre(formData:FormData){
+    addLivre(formData:FormData):  Observable<any>{
 
-      return this.http.post(this.url+"/ajouter/", formData, {responseType:"text"});
+      return this.http.post(this.url+"/ajouter/", formData);
     }
     getAllLivre(){
       return this.http.get(this.url +"/lister");

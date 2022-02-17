@@ -34,11 +34,11 @@ a, a:hover, a:focus {
 }
 ::selection {
 
-    background: #ff8404;
+    background: #4481FF;
     color: #fff;
 }
 ::-moz-selection {
-    background: #ff8404;
+    background: #4481FF;
     color: #fff;
 }
 
@@ -49,7 +49,7 @@ a, a:hover, a:focus {
 
 /* Bootstrap Modifications */
 .modal-header {
-	background: #ff8404;
+	background: #4481FF;
 }
 
 .modal-title {
@@ -79,7 +79,7 @@ a, a:hover, a:focus {
 /*Theme Backgrounds*/
 
 .bg-theme {
-	background-color: #ff8404;
+	background-color: #4481FF;
 }
 
 .bg-theme02 {
@@ -87,7 +87,7 @@ a, a:hover, a:focus {
 }
 
 .bg-theme03 {
-  background-color: #ff7004;
+  background-color: #4081FF;
 }
 
 .bg-theme04 {
@@ -97,8 +97,8 @@ a, a:hover, a:focus {
 
 .btn-theme {
   color: #fff;
-  background-color: #ff8404;
-  border-color: #ff7004;
+  background-color: #4481FF;
+  border-color: #4081FF;
 }
 .btn-theme:hover,
 .btn-theme:focus,
@@ -106,8 +106,8 @@ a, a:hover, a:focus {
 .btn-theme.active,
 .open .dropdown-toggle.btn-theme {
   color: #fff;
-  background-color: #8b4800;
-  border-color: #ff7004;
+  background-color: #aac7ff;
+  border-color: #4081FF;
 }
 
 .btn-theme02 {
@@ -121,7 +121,7 @@ a, a:hover, a:focus {
 .btn-theme02.active,
 .open .dropdown-toggle.btn-theme02 {
   color: #fff;
-  background-color: #faa01a;
+  background-color: #4440FF;
   border-color: #967adc;
 }
 
@@ -208,11 +208,11 @@ hr {
 /*Exclusive Theme Colors Configuration*/
 
 .label-theme {
-	background-color: #ff8404;
+	background-color: #4481FF;
 }
 
 .bg-theme {
-	background-color: #ff8404;
+	background-color: #4481FF;
 }
 
 ul.top-menu > li > .logout {
@@ -220,10 +220,10 @@ ul.top-menu > li > .logout {
 	font-size: 12px;
 	border-radius: 4px;
 	-webkit-border-radius: 4px;
-	border: 1px solid #ff8004 !important;
+	border: 1px solid #0e3480 !important;
 	padding: 5px 15px;
 	margin-right: 15px;
-	background: #ff8404;
+	background: #4481FF;
 	margin-top: 15px;
 }
 
@@ -327,7 +327,7 @@ ul.sidebar-menu li ul.sub li a:hover {
 }
 
 ul.sidebar-menu li ul.sub li.active a {
-    color: #ff8404;
+    color: #4481FF;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
@@ -366,7 +366,7 @@ ul.sidebar-menu li a{
 }
 
 ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
-    background: #ff8404;
+    background: #4481FF;
     color: #fff;
     display: block;
 
@@ -415,7 +415,7 @@ ul.sidebar-menu li a.active i {
 }
 
 .black-bg {
-    background: #ffbb00;
+    background: #578fff;
     border-bottom: 1px solid #393d46;
 }
 
@@ -447,7 +447,7 @@ a.logo:hover, a.logo:focus {
 }
 
 a.logo span {
-    color: #ff8404;
+    color: #4481FF;
 }
 
 
@@ -525,12 +525,12 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 .dropdown-menu.extended li p.green {
-    background-color: #ff8404;
+    background-color: #4481FF;
     color: #fff;
 }
 
 .dropdown-menu.extended li p.yellow {
-    background-color: #fcb322;
+    background-color: #4401FF;
     color: #fff;
 }
 
@@ -729,9 +729,9 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     border-top-color: #FCB322 !important;
 }
 .notify-arrow-green {
-    border-color: transparent transparent #ff8404;
-    border-bottom-color: #ff8404 !important;
-    border-top-color: #ff8404 !important;
+    border-color: transparent transparent #4481FF;
+    border-bottom-color: #4481FF !important;
+    border-top-color: #4481FF !important;
 }
 
 
@@ -815,7 +815,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 .ds a {
-	color: #ff8404;
+	color: #4481FF;
 }
 
 /* MAIN CHART CONFIGURATION */
@@ -864,8 +864,8 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 .custom-bar-chart .bar .value {
     position: absolute;
     bottom: 0;
-    background: #ff8404;
-    color: #ff8404;
+    background: #4481FF;
+    color: #4481FF;
     width: 100%;
     -webkit-border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;
@@ -995,7 +995,7 @@ PANELS CONFIGURATIONS
 /*Green Panel*/
 .green-panel {
 	text-align: center;
-	background: #ff8404;
+	background: #4481FF;
 }
 .green-panel .green-header {
 	background: #43b1a9;
@@ -1479,7 +1479,7 @@ PANELS CONFIGURATIONS
 	font-weight: 900;
 }
 .profile-01 {
-	background: #ff8404;
+	background: #4481FF;
 	height: 50px;
 }
 .profile-01:hover {
@@ -1527,7 +1527,7 @@ PANELS CONFIGURATIONS
 	color: #cdcdcd;
 }
 .pr2-social a:hover {
-	color: #ff8404;
+	color: #4481FF;
 }
 .pr2-social i {
 	margin-top: 15px;
@@ -1583,7 +1583,7 @@ PANELS CONFIGURATIONS
     font-size: 12px;
 }
 .panel.terques-chart .chart-tittle .value a:hover, .panel.terques-chart .chart-tittle .value a.active {
-    color: #ff8404;
+    color: #4481FF;
     font-size: 12px;
 }
 .panel.terques-chart .chart-tittle {
@@ -1665,7 +1665,7 @@ PANELS CONFIGURATIONS
   display: block;
   position: relative;
   overflow: hidden;
-  background-color: #ff8404;
+  background-color: #4481FF;
   -webkit-transition: background-color 0.4s;
   -moz-transition: background-color 0.4s;
   -o-transition: background-color 0.4s;
@@ -1685,7 +1685,7 @@ PANELS CONFIGURATIONS
 }
 
 .project:hover .photo-wrapper {
-  background-color: #ff8404;
+  background-color: #4481FF;
 	background-image:url(../img/zoom.png);
 	background-repeat:no-repeat;
 	background-position:center;
@@ -1941,7 +1941,7 @@ ul li {
 }
 .dataTables_paginate.paging_bootstrap.pagination li:hover a, .dataTables_paginate.paging_bootstrap.pagination li.active a {
 	color: #fff;
-	background: #ff8404;
+	background: #4481FF;
 	border-radius: 3px;
 	-webkit-border-radius: 3px;
 }
@@ -1959,7 +1959,7 @@ ul li {
 	margin: 0;
 	padding: 25px 20px;
 	text-align: center;
-	background: #ff8404;
+	background: #4481FF;
 	border-radius: 5px 5px 0 0;
 	-webkit-border-radius: 5px 5px 0 0;
 	color: #fff;
@@ -2181,7 +2181,7 @@ ul.my-friends li .friends-pic {
 	height:3px;
 	margin: 10px auto;
 	width: 80px;
-	background-color:#ff8404;
+	background-color:#4481FF;
 }
 .icn-main-container {
 	position: relative;
@@ -2197,7 +2197,7 @@ ul.my-friends li .friends-pic {
 	font-size: 2.4em;
 	line-height: 100px;
 	color: #fff;
-	background-color:#ff8404;
+	background-color:#4481FF;
 		-webkit-transition: all 0.6s ease-in-out;
 		transition: all 0.6s ease-in-out;
 }
@@ -2277,7 +2277,7 @@ ul.my-friends li .friends-pic {
 
 .dm-icon:active,
 .dm-icon:hover {
-	background: #ff8404
+	background: #4481FF
 }
 
 
@@ -2305,13 +2305,13 @@ ul.my-friends li .friends-pic {
 }
 .mail-nav>li>a:hover,.mail-nav>li>a:focus {
     background:#fafafa;
-    color:#ff8404;
+    color:#4481FF;
     border-right:3px solid #1fb5ad;
 }
 .mail-nav>li.active>a,.mail-nav>li.active>a:hover,.mail-nav>li.active>a:focus {
     background:#fafafa;
-    color:#ff8404;
-    border-right:3px solid #ff8404;
+    color:#4481FF;
+    border-right:3px solid #4481FF;
 }
 .mail-nav>li+li {
     margin-left:0;
@@ -2361,14 +2361,14 @@ a.mail-dropdown {
     padding:20px;
 }
 .btn-compose {
-    background:#ff8404;
+    background:#4481FF;
     padding:12px 0;
     text-align:center;
     width:100%;
     color:#fff;
 }
 .btn-compose:hover,.btn-compose:focus {
-    background:#ff7004;
+    background:#4081FF;
     color:#fff;
 }
 
@@ -2476,7 +2476,7 @@ ul.labels-info li img {
 .inbox-head .sr-btn {
     height:40px;
     border:none;
-    background:#ff7004;
+    background:#4081FF;
     color:#fff;
     padding:0 20px;
     border-radius:0 4px 4px 0;
@@ -2688,11 +2688,11 @@ ul.inbox-pagination li {
 }
 
 .view-mail a, .attachment-mail a:hover {
-    color: #ff8404;
+    color: #4481FF;
 }
 
 .attachment-mail a{
-    color: #ff8404;
+    color: #4481FF;
 }
 
 .attachment-mail ul li  {
@@ -2770,7 +2770,7 @@ ul.inbox-pagination li {
 }
 
 .chat-room-head {
-    background:#ff8404;
+    background:#4481FF;
     color: #FFFFFF;
     min-height: 70px;
     padding: 15px;
@@ -2925,7 +2925,7 @@ ul.chat-user li a:hover{
     font-size: 16px;
 }
 .room-box h5 a {
-    color: #ff8404;
+    color: #4481FF;
 }
 
 .chat-tools {
@@ -2973,7 +2973,7 @@ ul.chat-available-user li a {
 }
 
 ul.chat-available-user li a:hover {
-    color: #ff8404;
+    color: #4481FF;
 }
 
 
@@ -3319,7 +3319,7 @@ ul.chat-available-user li a:hover {
 
 /*footer*/
 .site-footer {
-    background: #ff8404;
+    background: #4481FF;
     color: #fff;
     padding: 15px 0;
 }
@@ -3382,7 +3382,7 @@ ul.chat-available-user li a:hover {
 }
 
 .contact-form .form-send button  {
-  background: #ff8404;
+  background: #4481FF;
   border: 0;
   padding: 10px 30px;
   color: #fff;

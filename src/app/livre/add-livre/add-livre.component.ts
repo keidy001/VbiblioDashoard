@@ -31,12 +31,12 @@ export class AddLivreComponent implements OnInit {
     console.log('tes'+this.allCategory);
     this.formulaire = this.formBuilder.group({
 
-      photo: ['', Validators.required],
-      livre: ['', Validators.required],
+      // photo: ['', Validators.required],
+      // livre: ['', Validators.required],
       titre: ['', Validators.required],
       auteur: ['', Validators.required],
       prix: ['', Validators.required],
-      domaine: ['', Validators.required],
+     domaine: ['', Validators.required],
       category: ['', Validators.required],
       format: ['', Validators.required],
       somaire: ['', [Validators.required]],
