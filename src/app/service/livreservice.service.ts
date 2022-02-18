@@ -9,7 +9,7 @@ export class LivreserviceService {
 
 
   url='http://localhost:8080/api/livre';
-
+  img='http://localhost:8080/api/livre/photo';
 
   constructor(
     private http : HttpClient)

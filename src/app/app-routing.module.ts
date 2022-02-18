@@ -1,3 +1,4 @@
+import { AddCategoryComponent } from './category/add-category/add-category.component';
 import { LoginComponent } from './authentification/login/login.component';
 import { ListLivreComponent } from './livre/list-livre/list-livre.component';
 import { NgModule } from '@angular/core';
@@ -10,6 +11,8 @@ const routes: Routes = [
   {path:"addlivre",component:AddLivreComponent, },
   {path:"login",component:LoginComponent, },
   {path:"accueil",component:AdminComponent, },
+  {path:"category",component:AddCategoryComponent, },
+
 
   { path: '**', redirectTo: '/login', pathMatch:'full'},
 

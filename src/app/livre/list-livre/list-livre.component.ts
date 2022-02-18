@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListLivreComponent implements OnInit {
   allLivres : any;
+  image : any;
   constructor(
     public livreService : LivreserviceService,
     public router: Router,
@@ -16,6 +17,7 @@ export class ListLivreComponent implements OnInit {
 
   ngOnInit(): void {
       this.getAllLivre();
+      this.image =this.livreService.img
   }
 
   getAllLivre(){

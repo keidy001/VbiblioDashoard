@@ -26,7 +26,7 @@
             <tbody>
               <tr *ngFor="let livre of allLivres">
                 <td>
-                  <img src="{{livre.photo}}">
+                  <img src="{{image}}{{livre.photo}}">
                 </td>
                 <td class="hidden-phone">{{livre.titre}}</td>
                 <td>{{livre.auteur}}</td>
