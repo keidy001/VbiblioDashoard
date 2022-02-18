@@ -19,9 +19,13 @@ export class LivreserviceService {
 
      //-------------------------------------------------------Gestion livre livre --------------
 
-    addLivre(formData:FormData):  Observable<any>{
+    addLivre(data:any, imgfile:File,livrefile:File ):  Observable<any>{
 
-      return this.http.post(this.url+"/ajouter/", formData);
+      const forms: FormData = new FormData();
+      forms.append("image", imgfile)
+      forms.append("livre", livrefile)
+      return this.http.post(this.url+"/ajouter/",forms);
+
     }
     getAllLivre(){
       return this.http.get(this.url +"/lister");

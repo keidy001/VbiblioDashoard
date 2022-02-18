@@ -38,7 +38,7 @@
                             <span class="btn btn-theme02 btn-file">
                               <span class="fileupload-new"><i class="fa fa-paperclip"></i> Choisir un fichier</span>
                             <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
-                            <input type="file" class="default"value="" name="livre"   required />
+                            <input type="file" class="default"value="" name="livre"  (change)="livreSelect($event)"  required />
                             </span>
                             <span class="fileupload-preview" style="margin-left:5px;"></span>
                             <a href="" class="close fileupload-exists" data-dismiss="fileupload" style="float: none; margin-left:5px;"></a>

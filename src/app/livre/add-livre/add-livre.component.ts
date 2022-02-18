@@ -52,47 +52,33 @@ export class AddLivreComponent implements OnInit {
   const img = event.target.files[0];
  this.imgfile =img;
 }
-// livreSelect(event){
-//   const livre = event.target.files[0];
-//   this.imgfile.get('livre').setValue(livre);
-//   console.log(this.imgfile);
-// }
+livreSelect(event){
+  const livre = event.target.files[0];
+ this.livrefile =livre;
+}
 
   submitForm(fg : FormGroup){
-
     var obj: { [idCategory: string]: any} = {};
     obj['idCategory'] = fg.value.category;
     fg.value.category = obj;
-    const data = fg.value;
-    const formData = new FormData();
-    formData.append('data',JSON.stringify(data) )
-    formData.append('photo',this.imgfile);
-    console.log("test de data"+formData.get('photo'));
-    this.livreService.addLivre(formData).subscribe((data)=>{
-      console.log(data)
+    
+    this.livreService.addLivre( fg.value, this.imgfile, this.livrefile ).subscribe((data)=>{
+     
+        data.titre=fg.value['titre'],
+        data.auteur=fg.value['auteur'],
+        data.description=fg.value['description'],
+        data.somaire=fg.value['somaire'],
+        data.prix=fg.value['prix'],
+        data.domaine=fg.value['domaine'],
+        data.category=fg.value['category'],
+        data.format=fg.value['format'],
+      
+      this.livreService.updateLivre(data.idLivre,data).subscribe((data)=>{
+        this.toast.success("Ajout effectuer avec succès ");
+        this.router.navigateByUrl("/listlivres");
+      })
     })
     // formData.append('livre',this.livrefile);
-
-    this.submitted = true;
-    console.log(this.formulaire)
-    // stop here if form is invalid
-    if (this.formulaire.invalid) {
-        return;
-    }
-
-
-
-   console.log(JSON.stringify(fg.value));
-
-   this.livreService.addLivre(fg.value).subscribe(
-
-     (data)=>{
-      this.toast.success("Ajout effectuer avec succès ");
-      this.router.navigateByUrl("/listlivres");
-
-     }
-
-   )
 
   }
 
