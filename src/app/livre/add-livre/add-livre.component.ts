@@ -61,9 +61,9 @@ livreSelect(event){
     var obj: { [idCategory: string]: any} = {};
     obj['idCategory'] = fg.value.category;
     fg.value.category = obj;
-    
+
     this.livreService.addLivre( fg.value, this.imgfile, this.livrefile ).subscribe((data)=>{
-     
+      console.log(data)
         data.titre=fg.value['titre'],
         data.auteur=fg.value['auteur'],
         data.description=fg.value['description'],
@@ -72,7 +72,7 @@ livreSelect(event){
         data.domaine=fg.value['domaine'],
         data.category=fg.value['category'],
         data.format=fg.value['format'],
-      
+      console.log(data)
       this.livreService.updateLivre(data.idLivre,data).subscribe((data)=>{
         this.toast.success("Ajout effectuer avec succès ");
         this.router.navigateByUrl("/listlivres");
@@ -81,7 +81,6 @@ livreSelect(event){
     // formData.append('livre',this.livrefile);
 
   }
-
 
 
   showToast(){

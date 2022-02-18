@@ -19,6 +19,7 @@ import { RegisterComponent } from './authentification/register/register.componen
 import { HttpClientModule } from '@angular/common/http';
 import {  ToastrModule, ToastrService } from 'ngx-toastr';
 import { AdminComponent } from './admin/admin/admin.component';
+import { AddCategoryComponent } from './category/add-category/add-category.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AdminComponent } from './admin/admin/admin.component';
     LoginComponent,
     RegisterComponent,
     AdminComponent,
+    AddCategoryComponent,
   ],
   imports: [
     BrowserModule,

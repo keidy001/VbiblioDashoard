@@ -9,7 +9,7 @@ export class LivreserviceService {
 
 
   url='http://localhost:8080/api/livre';
-
+  img='http://localhost:8080/api/livre/photo';
 
   constructor(
     private http : HttpClient)
@@ -22,8 +22,8 @@ export class LivreserviceService {
     addLivre(data:any, imgfile:File,livrefile:File ):  Observable<any>{
 
       const forms: FormData = new FormData();
-      forms.append("image", imgfile)
-      forms.append("livre", livrefile)
+      forms.append("file", imgfile)
+      forms.append("pdf", livrefile)
       return this.http.post(this.url+"/ajouter/",forms);
 
     }
