@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 
@@ -7,11 +8,25 @@ import { PrimeNGConfig } from 'primeng/api';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
- title = 'GStock';
-  constructor(private primengConfig: PrimeNGConfig) {}
-  test:string = "sidy";
+loginStatus : any;
+loginInfo :any;
+  constructor(
+    private router :Router
+  ) {}
   ngOnInit() {
-      this.primengConfig.ripple = true;
-  }
+     if(localStorage["loginInfo"]){
+      this.loginInfo=JSON.parse(localStorage["loginInfo"]);
+      console.log(this.loginInfo)
+    }
 
+    if(localStorage["loginStatus"]){
+      this.loginStatus=JSON.parse(localStorage["loginStatus"]);
+      console.log(this.loginStatus)
+    }  
+  }
+logOut(){
+  localStorage.removeItem('loginStatus');
+  localStorage.removeItem('loginInfo');
+  location.replace("/");
+}
 }

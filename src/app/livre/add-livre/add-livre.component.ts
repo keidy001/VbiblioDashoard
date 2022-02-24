@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators, NgForm } from "@angular/forms";
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CategoryService } from 'src/app/service/category.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-add-livre',
   templateUrl: './add-livre.component.html',
@@ -39,7 +39,7 @@ export class AddLivreComponent implements OnInit {
      domaine: ['', Validators.required],
       category: ['', Validators.required],
       format: ['', Validators.required],
-      somaire: ['', [Validators.required]],
+      sommaire: ['', [Validators.required]],
       description: ['', [Validators.required]],
 
   },);
@@ -67,14 +67,20 @@ livreSelect(event){
         data.titre=fg.value['titre'],
         data.auteur=fg.value['auteur'],
         data.description=fg.value['description'],
-        data.somaire=fg.value['somaire'],
+        data.sommaire=fg.value['sommaire'],
         data.prix=fg.value['prix'],
         data.domaine=fg.value['domaine'],
         data.category=fg.value['category'],
         data.format=fg.value['format'],
       console.log(data)
-      this.livreService.updateLivre(data.idLivre,data).subscribe((data)=>{
-        this.toast.success("Ajout effectuer avec succès ");
+      this.livreService.updateLivre(data.idLivre, data).subscribe((data)=>{
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Ajout effectuer avec succès !',
+          showConfirmButton: false,
+          timer: 3000
+        })
         this.router.navigateByUrl("/listlivres");
       })
     })
@@ -97,4 +103,5 @@ getCategory(){
     localStorage.removeItem('isLogin');
   this.router.navigateByUrl('/');
 }
+
 }

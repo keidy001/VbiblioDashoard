@@ -1,39 +1,67 @@
 <section class="wrapper">
-  <h3>Ajouter un Livre</h3>
-  <div class="row " >
-      <div class="col-lg-4">
-          <div class="form-panel" style="padding: 3%;">
-              <form [formGroup]="formulaire" (ngSubmit)="submitForm(formulaire)" novalidate class="form-horizontal style-form">
+    <h3>Ajouter un Livre</h3>
+    <div class="row ">
 
 
-                  <div class="form-group">
+        <div class="adv-table col-lg-8">
+            <table cellpadding="0" cellspacing="0" class="display table table-bordered" id="hidden-table-info">
+                <thead>
+                    <tr>
+                        <th>##N°</th>
+                        <th>Catégories</th>
+                        <th class="hidden-phone">Description</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let category of category">
+                    <tr class="primary" *ngIf="!category.deleted">
+                        <td>{{category.idCategory}}</td>
+                        <td>{{category.category}}</td>
+                        <td class="hidden-phone">{{category.description}}</td>
+                        <td class="center hidden-phone">
+                            <button routerLink="/updateCatgoery/{{category.id}}"><i class="fa fa-pencil" style="color: green;"></i></button>
+                        </td>
+                        <td class="center hidden-phone danger">
+                            <button (click)="delete(category.idCategory)"><i class="fa fa-trash-o"
+                                    style="color: red;"></i></button>
+                        </td>
+                    </tr>
 
-                      <label class="control-label col-md-5"> Nom de la catégories :</label>
-                      <div class="col-md-6 col-xs-11 ">
-                          <input class="form-control form-control-inline input-medium " size="16"
-                              type="text" value="" formControlName="category"  required>
-                      </div>
-                  </div>
 
-                  <div class="form-group">
-                  <div class="col-md-11 col-xs-11">
-                      <label class="control-label col-md-12" style="margin-bottom: 2%; margin-left: -4%;">Description du livre :</label>
-                      <textarea class="form-control form-control-inline input-medium " cols="10" rows="7" size="16"
-                          type="text" value="" formControlName="description" ></textarea>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-4">
+            <div class="form-panel" style="padding: 3%;">
+                <form [formGroup]="formulaire" (ngSubmit)="submitForm(formulaire)" novalidate
+                    class="form-horizontal style-form">
+
+
+                    <div class="form-group">
+
+                        <label class="control-label col-md-6"> Nom de la catégories :</label>
+                        <div class="col-md-6 col-xs-11 ">
+                            <input class="form-control form-control-inline input-medium " size="16" type="text" value=""
+                                formControlName="category" required>
                         </div>
-                      </div>
+                    </div>
 
+                    <div class="form-group">
+                        <div class="col-md-11 col-xs-11">
+                            <label class="control-label col-md-12"
+                                style="margin-bottom: 2%; margin-left: -4%;">Description du livre :</label>
+                            <textarea class="form-control form-control-inline input-medium " cols="10" rows="7"
+                                size="16" type="text" value="" formControlName="description"></textarea>
+                        </div>
+                    </div>
+                    
 
-                  <button type="submit" class="btn btn-theme btn-file" [disabled]="" >Enregistrer</button>
-              </form>
-          </div>
-          <!-- /form-panel -->
-      </div>
-      <!-- /col-lg-12 -->
-  </div>
+                    <button type="submit" class="btn btn-theme btn-file" [disabled]="">Enregistrer</button>
+                </form>
+            </div>
+            <!-- /form-panel -->
+        </div>
+        <!-- /col-lg-12 -->
+    </div>
+
 </section>
 <!-- /wrapper -->
-
-
-
-

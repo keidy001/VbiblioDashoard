@@ -9,7 +9,9 @@ export class LivreserviceService {
 
 
   url='http://localhost:8080/api/livre';
-  img='http://localhost:8080/api/livre/photo';
+  img='http://localhost:8080/api/livre/photo/';
+  contentLivre='http://localhost:8080/api/livre/livre/';
+
 
   constructor(
     private http : HttpClient)
@@ -24,16 +26,18 @@ export class LivreserviceService {
       const forms: FormData = new FormData();
       forms.append("file", imgfile)
       forms.append("pdf", livrefile)
+      forms.append("data", data)
+
       return this.http.post(this.url+"/ajouter/",forms);
 
-    }
+    } 
     getAllLivre(){
       return this.http.get(this.url +"/lister");
     }
     deleteLivre(id:number){
         return this.http.put(this.url+"/disable/"+id,{responseType:'text'});
     }
-    restoreLivre(id:any, userId:number){
+    restoreLivre(id:any, ){
       return this.http.put(this.url+"/restore/"+id,{responseType:'text'});
   }
 
@@ -44,5 +48,8 @@ export class LivreserviceService {
       return this.http.put(this.url+"/modifier/"+id, data);
     }
 
+    getLivreById(id:number){
+     return this.http.get(this.url +"/afficher/"+id);
+    }
 
 }

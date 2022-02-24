@@ -15,7 +15,8 @@ export class AddCategoryComponent implements OnInit {
   public imgfile : any = File;
   public livrefile : any = File;
   submitted = false;
-
+  category :any;
+  adminData :any;
   constructor(
     public categoryService : CategoryService,
     public  route: ActivatedRoute,
@@ -23,23 +24,44 @@ export class AddCategoryComponent implements OnInit {
     public toast: ToastrService,
     public formBuilder: FormBuilder
   ) { }
-
+    
   ngOnInit(): void {
-
+    this.adminData =JSON.parse(localStorage['loginInfo']);
+    this.getCategory();
     this.formulaire = this.formBuilder.group({
       category: ['', Validators.required],
       description: ['', Validators.required],
   },);
   }
+
   submitForm(fg : FormGroup){
 
+    // var obj: { [idAdmin: string]: any} = {};
+     
+    // obj['idAdmin'] = this.adminData.idAdmin; 
+    // fg.value.admin = obj;
+    
+    console.log(fg.value)
+    console.log(this.adminData)
     this.categoryService.addCategory( fg.value).subscribe((data)=>{
-      console.log(data)
+     
         this.toast.success("Ajout effectuer avec succès ");
-        this.router.navigateByUrl("/category");
+        this.getCategory();
     })
-    // formData.append('livre',this.livrefile);
+    
+    
+  }
+  
+  getCategory(){
 
+    this.categoryService.getAllCategory().subscribe((data)=>{
+      this.category =data;
+    })
   }
 
+  delete(id:number){
+    this.categoryService.deleteCategory(id).subscribe((res)=>{
+      this.getCategory();
+    })
+  }
 }

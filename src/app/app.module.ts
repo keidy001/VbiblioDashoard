@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,13 @@ import { HttpClientModule } from '@angular/common/http';
 import {  ToastrModule, ToastrService } from 'ngx-toastr';
 import { AdminComponent } from './admin/admin/admin.component';
 import { AddCategoryComponent } from './category/add-category/add-category.component';
+import { UpdateCategoryComponent } from './category/update-category/update-category.component';
+import { CorbeilleComponent } from './corbeille/corbeille.component';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -36,20 +44,27 @@ import { AddCategoryComponent } from './category/add-category/add-category.compo
     RegisterComponent,
     AdminComponent,
     AddCategoryComponent,
+    UpdateCategoryComponent,
+    CorbeilleComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     AccordionModule,
     FormsModule,
-    BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ToastrModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
-
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatSliderModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatFormFieldModule
 
   ],
   providers: [],

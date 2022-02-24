@@ -29,14 +29,14 @@ export class LoginComponent implements OnInit {
         //this.router.navigate(["/accueil"]);
         location.replace("/accueil");
         localStorage.setItem('loginInfo', JSON.stringify(this.loginInfo));
+        localStorage.setItem('userRole', JSON.stringify(this.loginInfo.role));
         localStorage.setItem('loginStatus', JSON.stringify(loginStatus));
       }else{
 
-            this.toast.error("Login ou mot de passe incorrect");
-            this.router.navigate(["/login"])
-            let loginStatus = false;
-            localStorage.setItem('loginStatus', JSON.stringify(loginStatus));
-            console.log("login non connecter");
+        this.toast.error("Login ou mot de passe incorrect");
+        this.router.navigate(["/login"]);
+        console.log("login non connecter");
+      
           
         } 
         
