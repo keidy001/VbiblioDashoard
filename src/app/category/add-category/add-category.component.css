@@ -1,0 +1,73 @@
+table{
+  width: 100%;
+  /* background-color: rgb(255, 255, 255); */
+  color: black;
+ }
+ 
+ .mat-column-category {
+   word-wrap: break-word !important;
+   white-space: unset !important;
+   flex: 0 0 28% !important;
+   width: 28% !important;
+   overflow-wrap: break-word;
+   word-wrap: break-word;
+   color: black;
+
+   word-break: break-word;
+ 
+   -ms-hyphens: auto;
+   -moz-hyphens: auto;
+   -webkit-hyphens: auto;
+   hyphens: auto;
+ }
+ 
+ .mat-column-description {
+   word-wrap: break-word !important;
+   white-space: unset !important;
+   flex: 0 0 25% !important;
+   width: 25% !important;
+   overflow-wrap: break-word;
+   word-wrap: break-word;
+   color: black;
+
+   word-break: break-word;
+ 
+   -ms-hyphens: auto;
+   -moz-hyphens: auto;
+   -webkit-hyphens: auto;
+   hyphens: auto;
+ }
+ 
+.thStyle{
+  border-bottom: 1px solid #b1b1b1; font-size: large;
+}
+.paginatorStyle{
+    background-color: #26396e;
+  color: white;
+}
+
+
+ td.mat-cell {
+  /* row padding */
+  padding: 16px 0;
+  /* row border */
+  border-bottom: 1px solid #b1b1b1;
+  border-top: 1px solid #b1b1b1;
+ }
+ 
+
+ 
+ table {
+   /* row spacing / margin */
+   border-spacing: 0 8px !important;
+ } 
+
+ .mat-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.inputField {
+  width: 100%;
+}

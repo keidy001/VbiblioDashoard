@@ -1,8 +1,11 @@
+import { MatPaginator } from '@angular/material/paginator';
 import { CategoryService } from './../../service/category.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { MatTableDataSource } from '@angular/material/table';
+
 
 @Component({
   selector: 'app-add-category',
@@ -10,6 +13,14 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./add-category.component.css']
 })
 export class AddCategoryComponent implements OnInit {
+
+
+
+  
+@ViewChild('paginator') paginator! :MatPaginator;
+  
+  displayedColumns: string[] = ['category', 'description'];
+  dataSource : MatTableDataSource<any>;
   formulaire: FormGroup;
   allCategory : any;
   public imgfile : any = File;
@@ -27,10 +38,13 @@ export class AddCategoryComponent implements OnInit {
     
   ngOnInit(): void {
     this.adminData =JSON.parse(localStorage['loginInfo']);
+
+  
     this.getCategory();
+    
     this.formulaire = this.formBuilder.group({
       category: ['', Validators.required],
-      description: ['', Validators.required],
+      description: [''],
   },);
   }
 
@@ -53,10 +67,11 @@ export class AddCategoryComponent implements OnInit {
   }
   
   getCategory(){
-
-    this.categoryService.getAllCategory().subscribe((data)=>{
-      this.category =data;
-    })
+    this.categoryService.getAllCategory().subscribe((data:any )=>{
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator =this.paginator;
+    });
+   
   }
 
   delete(id:number){

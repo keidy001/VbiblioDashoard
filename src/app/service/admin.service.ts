@@ -20,4 +20,13 @@ export class AdminService {
         return this.http.get(this.url+"/login?login="+login+"&password="+password)
 
       }
+
+      getAllAdmin(){
+        return this.http.get(this.url+"/lister");
+      }
+
+
+      addAdmin(data :any){
+        return this.http.post(this.url+"/ajouter", data ,{responseType:'text'})
+      }
     }

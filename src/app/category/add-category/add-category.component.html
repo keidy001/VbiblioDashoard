@@ -1,67 +1,56 @@
-<section class="wrapper">
-    <h3>Ajouter un Livre</h3>
-    <div class="row ">
-
-
-        <div class="adv-table col-lg-8">
-            <table cellpadding="0" cellspacing="0" class="display table table-bordered" id="hidden-table-info">
-                <thead>
-                    <tr>
-                        <th>##N°</th>
-                        <th>Catégories</th>
-                        <th class="hidden-phone">Description</th>
-                    </tr>
-                </thead>
-                <tbody *ngFor="let category of category">
-                    <tr class="primary" *ngIf="!category.deleted">
-                        <td>{{category.idCategory}}</td>
-                        <td>{{category.category}}</td>
-                        <td class="hidden-phone">{{category.description}}</td>
-                        <td class="center hidden-phone">
-                            <button routerLink="/updateCatgoery/{{category.id}}"><i class="fa fa-pencil" style="color: green;"></i></button>
-                        </td>
-                        <td class="center hidden-phone danger">
-                            <button (click)="delete(category.idCategory)"><i class="fa fa-trash-o"
-                                    style="color: red;"></i></button>
-                        </td>
-                    </tr>
-
-
-                </tbody>
+<div class="row">
+<div class="card col-md-7 ">
+    <div >
+        <div class="mat-elevation-z8 demo-table">
+            <table mat-table [dataSource]="dataSource">
+          
+              <!-- Position Column -->
+              
+              <ng-container matColumnDef="category" >
+                <th  class="thStyle" mat-header-cell *matHeaderCellDef> Categories </th>
+                <td mat-cell *matCellDef="let element"><a routerLink="/listlivres/{{element.idCategory}}"> {{element.category}}</a> </td>
+              </ng-container>
+              <ng-container matColumnDef="description">
+                <th class="thStyle" mat-header-cell *matHeaderCellDef> Description </th>
+                <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+              </ng-container>
+             
+          
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              
             </table>
-        </div>
-        <div class="col-lg-4">
-            <div class="form-panel" style="padding: 3%;">
-                <form [formGroup]="formulaire" (ngSubmit)="submitForm(formulaire)" novalidate
-                    class="form-horizontal style-form">
+        
+            <mat-paginator #paginator class="paginatorStyle"
+                [pageSize]="5"
+                [pageSizeOptions]="[5, 10, 25, 100]"
+                aria-label="Select page">
+            </mat-paginator>
+             
+          </div>
 
-
-                    <div class="form-group">
-
-                        <label class="control-label col-md-6"> Nom de la catégories :</label>
-                        <div class="col-md-6 col-xs-11 ">
-                            <input class="form-control form-control-inline input-medium " size="16" type="text" value=""
-                                formControlName="category" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-11 col-xs-11">
-                            <label class="control-label col-md-12"
-                                style="margin-bottom: 2%; margin-left: -4%;">Description du livre :</label>
-                            <textarea class="form-control form-control-inline input-medium " cols="10" rows="7"
-                                size="16" type="text" value="" formControlName="description"></textarea>
-                        </div>
-                    </div>
-                    
-
-                    <button type="submit" class="btn btn-theme btn-file" [disabled]="">Enregistrer</button>
-                </form>
-            </div>
-            <!-- /form-panel -->
-        </div>
-        <!-- /col-lg-12 -->
     </div>
+</div>
+<div class="col-lg-4 mx-4">
+    <div class="form-panel" style="padding: 3%;">
+     
+            
+            
+        <form class="mat-form" [formGroup]="formulaire" (ngSubmit)="submitForm(formulaire)" novalidate>
+            <mat-form-field class="inputField" appearance="fill">
+              <mat-label>Catégories </mat-label>
+              <input matInput placeholder="Nom de la Catégorie" formControlName="category" required>
+            </mat-form-field>
+          
+            <mat-form-field class="inputField" appearance="fill">
+              <mat-label>Leave a comment</mat-label>
+              <textarea matInput  placeholder="Description de la catégorie du livre" formControlName="description"></textarea>
+            </mat-form-field>
+            
+            <button type="submit" class="btn btn-info btn-file" [disabled]="">Enregistrer</button>
+        </form>
 
-</section>
-<!-- /wrapper -->
+    </div>
+    <!-- /form-panel -->
+</div>
+</div>

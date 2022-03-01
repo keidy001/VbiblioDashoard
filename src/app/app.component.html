@@ -1,350 +1,209 @@
-
-<section id="container">
-  <!-- **********************************************************************************************************************************************************
-      TOP BAR CONTENT & NOTIFICATIONS
-      *********************************************************************************************************************************************************** -->
-  <!--header start-->
-  <header class="header wht-bg" *ngIf="loginStatus">
-    <div class="sidebar-toggle-box">
-      <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-    </div>
-    <!--logo start-->
-    <a href="index.html" class="logo"><b style="color: #000000;">V-<span style="text-transform: initial;">Biblio</span></b></a>
-    <!--logo end-->
-    <div class="nav notify-row" id="top_menu">
-      <!--  notification start -->
-      <ul class="nav top-menu">
-        <!-- settings start -->
-        <li class="dropdown">
-          <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-            <i class="fa fa-tasks"></i>
-            <span class="badge bg-theme">4</span>
-            </a>
-          <ul class="dropdown-menu extended tasks-bar">
-            <div class="notify-arrow notify-arrow-green"></div>
-            <li>
-              <p class="green">You have 4 pending tasks</p>
-            </li>
-            <li>
-              <a href="index.html#">
-                <div class="task-info">
-                  <div class="desc">Tableau de bord</div>
-                  <div class="percent">40%</div>
-                </div>
-                <div class="progress progress-striped">
-                  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                    <span class="sr-only">40% Complete (success)</span>
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="index.html#">
-                <div class="task-info">
-                  <div class="desc">Database Update</div>
-                  <div class="percent">60%</div>
-                </div>
-                <div class="progress progress-striped">
-                  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                    <span class="sr-only">60% Complete (warning)</span>
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="index.html#">
-                <div class="task-info">
-                  <div class="desc">Product Development</div>
-                  <div class="percent">80%</div>
-                </div>
-                <div class="progress progress-striped">
-                  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                    <span class="sr-only">80% Complete</span>
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="index.html#">
-                <div class="task-info">
-                  <div class="desc">Payments Sent</div>
-                  <div class="percent">70%</div>
-                </div>
-                <div class="progress progress-striped">
-                  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-                    <span class="sr-only">70% Complete (Important)</span>
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li class="external">
-              <a href="#">See All Tasks</a>
-            </li>
-          </ul>
-        </li>
-        <!-- settings end -->
-        <!-- inbox dropdown start-->
-        <li id="header_inbox_bar" class="dropdown">
-          <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-            <i class="fa fa-envelope-o"></i>
-            <span class="badge bg-theme">5</span>
-            </a>
-          <ul class="dropdown-menu extended inbox">
-            <div class="notify-arrow notify-arrow-green"></div>
-            <li>
-              <p class="green">You have 5 new messages</p>
-            </li>
-            <li>
-              <a href="index.html#">
-                <span class="photo"><img alt="avatar" src="assets/img/ui-zac.jpg"></span>
-                <span class="subject">
-                <span class="from">Zac Snider</span>
-                <span class="time">Just now</span>
-                </span>
-                <span class="message">
-                Hi mate, how is everything?
-                </span>
-                </a>
-            </li>
-            <li>
-              <a href="index.html#">
-                <span class="photo"><img alt="avatar" src="assets/img/ui-divya.jpg"></span>
-                <span class="subject">
-                <span class="from">Divya Manian</span>
-                <span class="time">40 mins.</span>
-                </span>
-                <span class="message">
-                Hi, I need your help with this.
-                </span>
-                </a>
-            </li>
-            <li>
-              <a href="index.html#">
-                <span class="photo"><img alt="avatar" src="assets/img/ui-danro.jpg"></span>
-                <span class="subject">
-                <span class="from">Dan Rogers</span>
-                <span class="time">2 hrs.</span>
-                </span>
-                <span class="message">
-                Love your new Dashboard.
-                </span>
-                </a>
-            </li>
-            <li>
-              <a href="index.html#">
-                <span class="photo"><img alt="avatar" src="assets/img/ui-sherman.jpg"></span>
-                <span class="subject">
-                <span class="from">Dj Sherman</span>
-                <span class="time">4 hrs.</span>
-                </span>
-                <span class="message">
-                Please, answer asap.
-                </span>
-                </a>
-            </li>
-            <li>
-              <a href="index.html#">See all messages</a>
-            </li>
-          </ul>
-        </li>
-        <!-- inbox dropdown end -->
-        <!-- notification dropdown start-->
-        <li id="header_notification_bar" class="dropdown">
-          <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-            <i class="fa fa-bell-o"></i>
-            <span class="badge bg-warning">7</span>
-            </a>
-          <ul class="dropdown-menu extended notification">
-            <div class="notify-arrow notify-arrow-yellow"></div>
-            <li>
-              <p class="yellow">You have 7 new notifications</p>
-            </li>
-            <li>
-              <a href="index.html#">
-                <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                Server Overloaded.
-                <span class="small italic">4 mins.</span>
-                </a>
-            </li>
-            <li>
-              <a href="index.html#">
-                <span class="label label-warning"><i class="fa fa-bell"></i></span>
-                Memory #2 Not Responding.
-                <span class="small italic">30 mins.</span>
-                </a>
-            </li>
-            <li>
-              <a href="index.html#">
-                <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                Disk Space Reached 85%.
-                <span class="small italic">2 hrs.</span>
-                </a>
-            </li>
-            <li>
-              <a href="index.html#">
-                <span class="label label-success"><i class="fa fa-plus"></i></span>
-                New User Registered.
-                <span class="small italic">3 hrs.</span>
-                </a>
-            </li>
-            <li>
-              <a href="index.html#">See all notifications</a>
-            </li>
-          </ul>
-        </li>
-        <!-- notification dropdown end -->
-      </ul>
-      <!--  notification end -->
-    </div>
-    <div class="top-menu">
-      <ul class="nav pull-right top-menu">
-        <li><a class="logout" (click)="logOut()" style="color: #000000;">Deconnexion</a></li>
-      </ul>
-    </div>
-  </header>
-  <!--header end-->
-  <!-- **********************************************************************************************************************************************************
-      MAIN SIDEBAR MENU
-      *********************************************************************************************************************************************************** -->
-  <!--sidebar start-->
-  <aside  *ngIf="loginStatus">
-    <div id="sidebar" class="nav-collapse ">
-      <!-- sidebar menu start-->
-      <ul class="sidebar-menu" id="nav-accordion">
-        <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="80"></a></p>
-        <h5 class="centered">Keith</h5>
-        <li class="mt">
-          <a class="active" href="/">
-            <i class="fa fa-dashboard"></i>
-            <span>Accueil</span>
-            </a>
-        </li>
-        <li>
-          <a  href="/listlivres">
-            <i class="fa fa-cart-plus"></i>
-            <span>Gestion des Livres</span>
-            </a>
-        </li>
-        <li>
-          <a  href="/category">
-            <i class="fa fa-cart-plus"></i>
-            <span>Gestion des CAtegories</span>
-            </a>
-        </li>
-        <li>
-          <a href="/list">
-            <i class="fa fa-tags"></i>
-            <span>Gestion des Librairie </span>
-            </a>
-        </li>
-        <li>
-          <a href="inbox.html">
-            <i class="fa fa-users"></i>
-            <span>Gestion des utilisateur </span>
-            </a>
-        </li>
-        <li>
-          <a href="/corbeille">
-            <i class="fa fa-users"></i>
-            <span>Corbeille </span>
-            </a>
-        </li>
-
-
-      </ul>
-      <!-- sidebar menu end-->
-    </div>
-  </aside>
-  <!--sidebar end-->
-  <!-- **********************************************************************************************************************************************************
-      MAIN CONTENT
-      *********************************************************************************************************************************************************** -->
-  <!--main content start-->
-  <section id="main-content">
-    <router-outlet></router-outlet>
-  </section>
-  <!--main content end-->
-  <!--footer start-->
-  <footer class="site-footer"  *ngIf="loginStatus">
-    <div class="text-center">
-      <p>
-        &copy; Copyrights <strong>ODK</strong>. Tous droit reservés
-      </p>
-      <div class="credits">
-        <!--
-          You are NOT allowed to delete the credit link to TemplateMag with free version.
-          You can delete the credit link only if you bought the pro version.
-          Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
-          Licensing information: https://templatemag.com/license/
-        -->
-        Orange digital Kalanso 2022 <a href="https://templatemag.com/">ODK</a>
+   <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+      <div class="lds-ripple">
+          <div class="lds-pos"></div>
+          <div class="lds-pos"></div>
       </div>
-      <a href="index.html#" class="go-top">
-        <i class="fa fa-angle-up"></i>
-        </a>
-    </div>
-  </footer>
-  <!--footer end-->
-</section>
-<script type="text/javascript">
-  /* Formating function for row details */
-  function fnFormatDetails(oTable, nTr) {
-    var aData = oTable.fnGetData(nTr);
-    var sOut = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
-    sOut += '<tr><td>Rendering engine:</td><td>' + aData[1] + ' ' + aData[4] + '</td></tr>';
-    sOut += '<tr><td>Link to source:</td><td>Could provide a link here</td></tr>';
-    sOut += '<tr><td>Extra info:</td><td>And any further details here (images etc)</td></tr>';
-    sOut += '</table>';
+  </div>
+  <!-- ============================================================== -->
+  <!-- Main wrapper - style you can find in pages.scss -->
+  <!-- ============================================================== -->
+  <div id="main-wrapper">
+      <!-- ============================================================== -->
+      <!-- Topbar header - style you can find in pages.scss -->
+      <!-- ============================================================== -->
+      <header class="topbar" data-navbarbg="skin4" *ngIf="loginStatus" >
+          <nav class="navbar top-navbar navbar-expand-md navbar-dark" style="color: #FC9B46  ;">
+              <div class="navbar-header" data-logobg="skin4">
+                  <!-- This is for the sidebar toggle which is visible on mobile only -->
+                  <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                  <!-- ============================================================== -->
+                  <!-- Logo -->
+                  <!-- ============================================================== -->
+                  <a class="navbar-brand" href="index.html">
+                      <!-- Logo icon -->
+                      <b class="logo-icon px-0">
+                          <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                          <!-- Dark Logo icon -->
+                          <img src="assets/asset/images/logo-icon.png" alt="homepage"  style="width: 60px;" />
+                      </b>
+                      <!--End Logo icon -->
+                       <!-- Logo text -->
+                      <span class="logo-text">
+                           <!-- dark Logo text -->
+                           <img src="assets/asset/images/logo-text.png" alt="homepage" class="light-logo" style="width: 140px;" />
 
-    return sOut;
-  }
+                      </span>
+                      <!-- Logo icon -->
+                      <!-- <b class="logo-icon"> -->
+                          <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                          <!-- Dark Logo icon -->
+                          <!-- <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" /> -->
+                          
+                      <!-- </b> -->
+                      <!--End Logo icon -->
+                  </a>
+                  <!-- ============================================================== -->
+                  <!-- End Logo -->
+                  <!-- ============================================================== -->
+                  <!-- ============================================================== -->
+                  <!-- Toggle which is visible on mobile only -->
+                  <!-- ============================================================== -->
+                  <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
+              </div>
+              <!-- ============================================================== -->
+              <!-- End Logo -->
+              <!-- ============================================================== -->
+              <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                  <!-- ============================================================== -->
+                  <!-- toggle and nav items -->
+                  <!-- ============================================================== -->
+                  <ul class="navbar-nav float-left mr-auto">
+                      <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
+                      <!-- ============================================================== -->
+                      <!-- create new -->
+                      <!-- ============================================================== -->
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           <span class="d-none d-md-block">Ajouter  <i class="fa fa-angle-down"></i></span>
+                           <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>   
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="#">Nouveau Documents</a>
+                              <a class="dropdown-item" href="#">Catégories de Documents</a>
+                              <a class="dropdown-item" href="#">Librairies</a>
+                          </div>
+                      </li>
+                      <!-- ============================================================== -->
+                      <!-- Search -->
+                      <!-- ============================================================== -->
+                      <li class="nav-item search-box"> <a class="nav-link waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
+                          <form class="app-search position-absolute">
+                              <input type="text" class="form-control" placeholder="Search &amp; enter"> <a class="srh-btn"><i class="ti-close"></i></a>
+                          </form>
+                      </li>
+                  </ul>
+                  <!-- ============================================================== -->
+                  <!-- Right side toggle and nav items -->
+                  <!-- ============================================================== -->
+                  <ul class="navbar-nav float-right">
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/asset/images/users/user.png" alt="user" class="rounded-circle" width="31"></a>
+                          <div class="dropdown-menu dropdown-menu-right user-dd animated px-3">
+                              <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user  mx-2 "></i> Mon profile</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="javascript:void(0)"><i class="ti-settings mx-2"></i>Parametre</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="javascript:void(0)" (click)="logOut()" ><i class="fa fa-power-off mx-2"></i> Deconnexion</a>
+                              <div class="dropdown-divider"></div>
+                          </div>
+                      </li>
+                      <!-- ============================================================== -->
+                      <!-- User profile and search -->
+                      <!-- ============================================================== -->
+                  </ul>
+              </div>
+          </nav>
+      </header>
+      <!-- ============================================================== -->
+      <!-- End Topbar header -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Left Sidebar - style you can find in sidebar.scss  -->
+      <!-- ============================================================== -->
+      <aside class="left-sidebar" data-sidebarbg="skin5" *ngIf="loginStatus">
+          <!-- Sidebar scroll-->
+          <div class="scroll-sidebar">
+              <!-- Sidebar navigation-->
+              <nav class="sidebar-nav">
+                  <ul id="sidebarnav" class="p-t-30">
+                      <hr>
 
-  $(document).ready(function() {
-    /*
-     * Insert a 'details' column to the table
-     */
-    var nCloneTh = document.createElement('th');
-    var nCloneTd = document.createElement('td');
-    nCloneTd.innerHTML = '<img src="assets/lib/advanced-datatable/images/details_open.png">';
-    nCloneTd.className = "center";
+                      <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-light sidebar-link" style="color: white;" href="accueil" aria-expanded="false"><i class="mdi mdi-home"></i><span class="hide-menu">Accueil</span></a></li>
+                      <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-light sidebar-link" style="color: white;" href="listlivres" aria-expanded="false"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu">Gestion des Livres</span></a></li>
+                      <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-light sidebar-link" style="color: white;" href="category" aria-expanded="false"><i class="mdi mdi-tag-multiple"></i><span class="hide-menu">Gestion des categories</span></a></li>
+                      <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-light sidebar-link" style="color: white;" href="librairy" aria-expanded="false"><i class="mdi mdi-library"></i><span class="hide-menu">Gestion des Librairies</span></a></li>
+                      <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-light sidebar-link" style="color: white;" href="utilisateurs" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Gestion des Utilisateurs</span></a></li>
+                      <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-light sidebar-link" style="color: white;" href="addadmin" aria-expanded="false"><i class="mdi mdi-account-card-details"></i><span class="hide-menu">Gestion des Admins</span></a></li>
+                      <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-light sidebar-link" style="color: white;" href="corbeille" aria-expanded="false"><i class="mdi mdi-delete-empty"></i><span class="hide-menu">Corbeille</span></a></li>                   
+                  </ul>
+              </nav>
+              <!-- End Sidebar navigation -->
+          </div>
+          <!-- End Sidebar scroll-->
+      </aside>
+      <!-- ============================================================== -->
+      <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Page wrapper  -->
+      <!-- ============================================================== -->
+      <div class="page-wrapper">
+          <!-- ============================================================== -->
+          <!-- Bread crumb and right sidebar toggle -->
+          <!-- ============================================================== -->
+           <div class="page-breadcrumb" *ngIf="loginStatus">
+              <div class="row">
+                  <div class="col-12 d-flex no-block align-items-center">
+                      <h4 class="page-title">Tableau de bord</h4>
+                      <div class="ml-auto text-right">
+                          <!-- <nav aria-label="breadcrumb">
+                              <ol class="breadcrumb">
+                                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                  <li class="breadcrumb-item active" aria-current="page">Library</li>
+                              </ol>
+                          </nav> -->
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- ============================================================== -->
+          <!-- End Bread crumb and right sidebar toggle -->
+          <!-- ============================================================== -->
+          <!-- ============================================================== -->
+          <!-- Container fluid  -->
+          <!-- ============================================================== -->
+          <div class="container-fluid">
+            <router-outlet></router-outlet>
+          </div>
+          <!-- ============================================================== -->
+          <!-- End Container fluid  -->
+          <!-- ============================================================== -->
+          <!-- ============================================================== -->
+          <!-- footer -->
+          <!-- ============================================================== -->
+          <footer class="footer text-center" *ngIf="loginStatus">
+              All Rights Reserved by Orange digital Kalanso . Designed and Developed by <a href="https://wrappixel.com">Keith & Aziz</a>.
+          </footer>
+          <!-- ============================================================== -->
+          <!-- End footer -->
+          <!-- ============================================================== -->
+      </div>
+      <!-- ============================================================== -->
+      <!-- End Page wrapper  -->
+      <!-- ============================================================== -->
+  </div>
 
-    $('#hidden-table-info thead tr').each(function() {
-      this.insertBefore(nCloneTh, this.childNodes[0]);
-    });
 
-    $('#hidden-table-info tbody tr').each(function() {
-      this.insertBefore(nCloneTd.cloneNode(true), this.childNodes[0]);
-    });
 
-    /*
-     * Initialse DataTables, with no sorting on the 'details' column
-     */
-    var oTable = $('#hidden-table-info').dataTable({
-      "aoColumnDefs": [{
-        "bSortable": false,
-        "aTargets": [0]
-      }],
-      "aaSorting": [
-        [1, 'asc']
-      ]
-    });
 
-    /* Add event listener for opening and closing details
-     * Note that the indicator for showing which row is open is not controlled by DataTables,
-     * rather it is done here
-     */
-    $('#hidden-table-info tbody td img').live('click', function() {
-      var nTr = $(this).parents('tr')[0];
-      if (oTable.fnIsOpen(nTr)) {
-        /* This row is already open - close it */
-        this.src = "assets/lib/advanced-datatable/media/images/details_open.png";
-        oTable.fnClose(nTr);
-      } else {
-        /* Open this row */
-        this.src = "assets/lib/advanced-datatable/images/details_close.png";
-        oTable.fnOpen(nTr, fnFormatDetails(oTable, nTr), 'details');
-      }
-    });
-  });
-</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

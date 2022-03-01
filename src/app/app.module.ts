@@ -28,6 +28,16 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { AccueilComponent } from './accueil/accueil.component';
+import {MatTableModule} from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatInputModule} from '@angular/material/input';
+import { AddAdminComponent } from './admin/add-admin/add-admin.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { FilterPipeModule } from 'ngx-filter-pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -46,6 +56,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     AddCategoryComponent,
     UpdateCategoryComponent,
     CorbeilleComponent,
+    AccueilComponent,
+    AddAdminComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -64,8 +77,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatFormFieldModule
-
+    MatFormFieldModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatInputModule,
+    MatSelectModule,
+    MatCardModule,
+    NgxPaginationModule,
+    FilterPipeModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

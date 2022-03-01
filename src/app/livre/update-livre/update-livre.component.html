@@ -1,128 +1,123 @@
-<section class="wrapper">
-    <h3>Ajouter un Livre</h3>
-    <div class="row " >
-        <div class="col-lg-12">
-            <div class="form-panel" style="padding: 3%;">
-                <form [formGroup]="formulaire" (ngSubmit)="submitForm(formulaire)" novalidate class="form-horizontal style-form">
-                <div class="form-group">
 
-                        <label class="control-label col-md-2">Image du livre</label>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <form class="form-horizontal" [formGroup]="formulaire" (ngSubmit)="submitForm(formulaire)" novalidate>
+
+                <div class="card-body">
+                    <div class="form-group row">
+                        <label class="col-sm-2 text-left control-label col-form-label">Image du livre</label>
                         <div class="col-md-3">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
-                                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                                <div class="fileupload-new thumbnail"
+                                    style="border: solid 1px; width: 200px; height: 150px; ">
                                     <img src="{{image}}{{livre.idLivre}}" alt=""  >
-                                </div>                                   
-
+                                    </div>
                                 <div class="fileupload-preview fileupload-exists thumbnail"
-                                    style="max-width: 200px; max-height: 150px; line-height: 20px;">
-                                
-                                </div>
+                                    style="max-width: 200px; max-height: 150px; line-height: 20px; "></div>
                                 <div>
-                                    <span class="btn btn-theme02 btn-file">
+                                    <span class="btn btn-secondary btn-file">
                                         <span class="fileupload-new"><i class="fa fa-paperclip"></i> Choisir une
                                             image</span>
                                         <span class="fileupload-exists"><i class="fa fa-undo"></i> Changer</span>
-                                        <input type="file" value=""name="photo" (change)="imgSelect($event)"   required class="default" />
+                                        <input type="file" value="" name="photo" (change)="imgSelect($event)" required
+                                            class="default" />
                                     </span>
-                                    <a href="#" class="btn btn-theme04 fileupload-exists"
+                                    <!-- <a href="javascript:" type="reset" class="btn btn-theme04 fileupload-exists"
                                         data-dismiss="fileupload"
                                         style="margin-left: 1%;"
-                                        ><i class="fa fa-trash-o"></i> Supprimer</a>
+                                        ><i class="fa fa-trash-o"></i> Supprimer</a> -->
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
-                    <div class="form-group padding">
-                        <label class="control-label col-md-2">Contenue du livre</label>
+                    <div class="form-group row">
+
+                        <label class="col-sm-2 text-left control-label col-form-label">Fichier du
+                            livre</label>
                         <div class="controls col-md-5">
-                          <div class="fileupload fileupload-new" data-provides="fileupload">
-                            <span class="btn btn-theme02 btn-file">
-                              <span class="fileupload-new"><i class="fa fa-paperclip"></i> Choisir un fichier</span>
-                            <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
-                            <input type="file" class="default"ngModel="{{contentLivre}}{{livre.idLivre}}" value="{{contentLivre}}{{livre.idLivre}}"  (change)="livreSelect($event)"  required />
-                            </span>
-                            <span class="fileupload-preview" style="margin-left:5px;">{{livre.livre}}</span>
-                            <a href="" class="close fileupload-exists" data-dismiss="fileupload" style="float: none; margin-left:5px;"></a>
-                          </div>
+                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <span class="btn btn-secondary btn-file">
+                                    <span class="fileupload-new"><i class="fa fa-paperclip"></i> Choisir un
+                                        fichier</span>
+                                    <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
+                                    <input type="file" class="default" ngModel="{{contentLivre}}{{livre.idLivre}}" value="{{contentLivre}}{{livre.idLivre}}" name="livre"
+                                        (change)="livreSelect($event)" required />
+                                </span>
+                                <span class="fileupload-preview" style="margin-left:5px;">{{livre.livre}}</span>
+                                <a href="" class="close fileupload-exists" data-dismiss="fileupload"
+                                    style="float: none; margin-left:5px;"></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div>
-                        <label class="control-label col-md-2"> Titre du livre</label>
-                        <div class="col-md-3 col-xs-11 ">
-                            <input class="form-control form-control-inline input-medium " size="16"
-                                type="text"  formControlName="titre" ngModel="{{livre.titre}}"  required>
-                        </div>
-                    </div>
-                        <label class="control-label col-md-2">Auteur du livre</label>
-                        <div class="col-md-3 col-xs-11">
-                            <input class="form-control form-control-inline input-medium " size="16"
-                                type="text" ngModel="{{livre.auteur}}" formControlName="auteur"   required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-2">Prix du livre</label>
-                        <div class="col-md-3 col-xs-11">
-                            <input class="form-control form-control-inline input-medium " size="16"
-                                type="number" ngModel="{{livre.prix}}" formControlName="prix"  required>
-                        </div>
-                        <div>
-                        <label class="control-label col-md-2">Domaine</label>
-                        <div class="col-md-3 col-xs-11">
-                            <input class="form-control form-control-inline input-medium " size="16"
-                                type="text" ngModel="{{livre.domaine}}"  formControlName="domaine"  required>
-                        </div>
-                    </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label class="control-label col-md-2">Catégorie</label>
-                        <div class="col-md-3 col-xs-11">
-                            <select class="form-control form-control-inline input-medium "
-                                type="text" ngModel="{{livre.category.category}}" formControlName="category"  required>
+                    </div>
+                    <div class="form-group row">
+                        <label for="titre" class="col-sm-2 text-left control-label col-form-label">Titre du
+                            livre</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="titre" 
+                                formControlName="titre" ngModel="{{livre.titre}}" required>
+                        </div>
+
+                        <label for="auteur" class="col-sm-2 text-left control-label col-form-label">Auteur</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="auteur"
+                                formControlName="auteur" ngModel="{{livre.auteur}}" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="prix" class="col-sm-2 text-left control-label col-form-label">Prix</label>
+                        <div class="col-sm-4">
+                            <input type="number" class="form-control" id="prix" 
+                                formControlName="prix" ngModel="{{livre.prix}}" required>
+                        </div>
+
+                        <label for="domaine" class="col-sm-2 text-left control-label col-form-label">Domaine</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="domaine" 
+                                formControlName="domaine" ngModel="{{livre.domaine}}" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 text-left control-label col-form-label">Catégorie</label>
+                        <div class="col-md-4">
+                            <select class="select2 form-control custom-select"  style="width: 100%; height:36px;" formControlName="category" ngModel="{{livre.category.category}}"  required>
                                 <option value="{{livre.category.category}}" selected> {{livre.category.category}} </option>
-                            <option *ngFor="let category of allCategory"  value="{{category.idCategory}}">{{category.category}}</option>
-                       </select>
+                                <option *ngFor="let category of allCategory" value="{{category.idCategory}}">{{category.category}}</option>
+                            </select>
                         </div>
-                        <div>
-                        <label class="control-label col-md-2">Format</label>
-                        <div class="col-md-3 col-xs-11">
-                            <select class="form-control form-control-inline input-medium "
-                            type="text" ngModel="{{livre.format}}" formControlName="format"  required>
-                            <option value="{{livre.format}}" selected> {{livre.format}} </option>
 
-                            <option value="Ebook">Ebook</option>
-                            <option value="Audio">Audio</option>
-                            <option value="Document">Document</option>
-                          </select>
+                        <label class="col-sm-2 text-left control-label col-form-label">Format</label>
+                        <div class="col-md-4">
+                            <select class="select2 form-control custom-select" style="width: 100%; height:36px;"
+                                formControlName="format" ngModel="{{livre.format}}" required> 
+                                <option value="{{livre.format}}" selected> {{livre.format}} </option>
+                                <option value="Ebook">Ebook</option>
+                                <option value="Audio">Audio</option>
+                                <option value="Document">Document</option>
+                            </select>
                         </div>
                     </div>
-                    </div>
-                    <div class="form-group">
+                    <div class="form-group row">
+                        <label for="cono1" class="col-sm-2 text-left control-label col-form-label">Sommaire du
+                            livre</label>
+                        <div class="col-sm-4">
+                            <textarea class="form-control" formControlName="sommaire" ngModel="{{livre.sommaire}}"></textarea>
+                        </div>
 
-                        <div class="col-md-5 col-xs-11">
-                        <label class="control-label col-md-5" style="margin-bottom: 2%; margin-left: -4%;">Sommaire du livre</label>
-                        <textarea class="form-control form-control-inline input-medium " cols="10" rows="7" size="16"
-                            type="text" ngModel="{{livre.sommaire}}" formControlName="sommaire" ></textarea>
+                        <label for="cono1" class="col-sm-2 text-left control-label col-form-label">Description du
+                            livre</label>
+                        <div class="col-sm-4">
+                            <textarea class="form-control" formControlName="description" ngModel="{{livre.description}}">{{livre.description}}</textarea>
+                        </div>
                     </div>
-                    <div class="col-md-5 col-xs-11">
-                        <label class="control-label col-md-5" style="margin-bottom: 2%; margin-left: -4%;">Description du livre</label>
-                        <textarea class="form-control form-control-inline input-medium " cols="10" rows="7" size="16"
-                            type="text" ngModel="{{livre.description}}" formControlName="description" ></textarea>
+                </div>
+                <div class="border-top">
+                    <div class="card-body">
+                        <button type="submit" class="btn btn-info" [disabled]="">Enregistrer</button>
                     </div>
-                    </div>
-
-                    <button type="submit" class="btn btn-theme btn-file" [disabled]="" >Enregistrer</button>
-                </form>
-            </div>
-            <!-- /form-panel -->
+                </div>
+            </form>
         </div>
-        <!-- /col-lg-12 -->
-    </div>
-</section>
-<!-- /wrapper -->
-
-
-
