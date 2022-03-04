@@ -7,11 +7,14 @@ import { Observable, throwError } from 'rxjs';
 })
 export class LivreserviceService {
 
-
+ //Local url
   url='http://localhost:8080/api/livre';
   img='http://localhost:8080/api/livre/photo/';
   contentLivre='http://localhost:8080/api/livre/livre/';
-
+ //Remote url
+ url1='https://vbiblio.herokuapp.com/api/livre';
+ img1='https://vbiblio.herokuapp.com/api/photo/';
+ contentLivre1='https://vbiblio.herokuapp.com/api/livre/livre/';
 
   constructor(
     private http : HttpClient)
@@ -32,7 +35,10 @@ export class LivreserviceService {
 
     } 
     getAllLivre(){
-      return this.http.get(this.url +"/lister");
+      return this.http.get(this.url +"/byStatus/0");
+    }
+    getDeletedLivre(){
+      return this.http.get(this.url +"/byStatus/1");
     }
     deleteLivre(id:number){
         return this.http.put(this.url+"/disable/"+id,{responseType:'text'});
@@ -51,5 +57,8 @@ export class LivreserviceService {
     getLivreById(id:number){
      return this.http.get(this.url +"/afficher/"+id);
     }
-
+    livreByFormat(format :String){
+      return this.http.get(this.url+"/livrebyformat/"+format)
+    }
+  
 }

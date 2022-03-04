@@ -30,7 +30,7 @@ export class CorbeilleComponent implements OnInit {
 
   }
 getLivre(){
-  this.livreService.getAllLivre().subscribe((data)=>{
+  this.livreService.getDeletedLivre().subscribe((data)=>{
     this.livres = data
   });
 }

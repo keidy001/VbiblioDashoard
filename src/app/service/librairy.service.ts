@@ -4,39 +4,38 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
-
+export class LibrairyService {
 
  //Local url
- url='http://localhost:8080/api/category';
+ url='http://localhost:8080/api/librairy';
 
  //Remote url
- url1 = 'https://vbiblio.herokuapp.com/api/category'
+ url1 = 'https://vbiblio.herokuapp.com/api/librairy'
   constructor(
     private http : HttpClient)
      { }
 
 
-  //-------------------------------------------------------Gestion category --------------
+  //-------------------------------------------------------Gestion librairy --------------
 
-addCategory(data:any){
+addLibrairy(data:any){
 
     return this.http.post(this.url+"/ajouter/", data, {responseType:"text"});
   }
-  getAllCategory(){
+  getAllLibrairy(){
     return this.http.get(this.url +"/lister");
   }
-  deleteCategory(id:number){
+  deleteLibrairy(id:number){
       return this.http.put(this.url+"/disable/"+id,{responseType:'text'});
   }
-  restoreCategory(id:any){
+  restoreLibrairy(id:any){
     return this.http.put(this.url+"/restore/"+id,{responseType:'text'});
 }
 
-  showCategory(id:any){
+  showLibrairy(id:any){
     return this.http.get(this.url +"/afficher"+ id);
   }
-  updateCategory(id:number, data: any){
+  updateLibrairy(id:number, data: any){
     return this.http.put(this.url+"/modifier/"+id, data);
   }
 }

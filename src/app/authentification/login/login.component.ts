@@ -1,3 +1,4 @@
+import {Md5} from 'ts-md5/dist/md5';
 import { AdminService } from './../../service/admin.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -20,6 +21,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   onLogin(form :NgForm){
+   // const md5 =new Md5;
+   // form.value.password = md5.appendStr(form.value.password);
     this.service.login(form.value["login"],form.value["password"]).subscribe((res)=>{
       if(res){
 

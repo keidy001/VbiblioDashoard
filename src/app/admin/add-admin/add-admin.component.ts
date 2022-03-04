@@ -1,7 +1,11 @@
+import { UpdateAdminComponent } from './../update-admin/update-admin.component';
+import { MatDialog ,MatDialogConfig  } from '@angular/material/dialog';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { AdminService } from 'src/app/service/admin.service';
+import Swal from 'sweetalert2';
+import {Md5} from 'ts-md5/dist/md5';
 
 @Component({
   selector: 'app-add-admin',
@@ -19,16 +23,13 @@ export class AddAdminComponent implements OnInit {
   constructor(
     public formBuilder: FormBuilder,
     private adminservice:AdminService,
+    private dialog:MatDialog,
 
   ) { }
 
   ngOnInit(): void {
 
-    this.adminservice.getAllAdmin().subscribe((response:any)=>{
-      this.admins = response;
-      this.admins.paginator =this.paginator;
-
-    })
+   this.listAdmin();
     this.adminData =JSON.parse(localStorage['loginInfo']);
 
     this.formulaire = this.formBuilder.group({ 
@@ -41,11 +42,24 @@ export class AddAdminComponent implements OnInit {
       password: ['', Validators.required],
 
     },);
+
+    
+
+
   }
 
+listAdmin(){
+  this.adminservice.getAllAdmin().subscribe((response:any)=>{
+    this.admins = response;
+    this.admins.paginator =this.paginator;
+
+  })
+
+}
 
   submitForm(fg : FormGroup){
-
+    const md5 = new Md5();
+    fg.value.password = md5.appendStr(fg.value.password).end();
     // var obj: { [idAdmin: string]: any} = {};
      
     // obj['idAdmin'] = this.adminData.idAdmin; 
@@ -58,4 +72,32 @@ export class AddAdminComponent implements OnInit {
         this.toast.success("Ajout effectuer avec succès ");
     })
 }
+
+delete(id: number) {
+  Swal.fire({
+    title: 'Etes vous sure?',
+    text: 'Le fichier sera placé dans le corbeille !',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Oui, Supprimer!',
+    cancelButtonText: 'Non, Ne pas supprimer ',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.adminservice.deleteAdmin(id).subscribe((res) => {
+        this.listAdmin();
+      });
+    } else if (result.isDismissed) {
+    }
+  });
+}
+update(id:number){
+  this.dialog.open(UpdateAdminComponent,{
+    data:id
+      
+    
+  }
+    )
+
+}
+
 }

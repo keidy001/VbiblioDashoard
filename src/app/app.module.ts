@@ -19,12 +19,11 @@ import { LoginComponent } from './authentification/login/login.component';
 import { RegisterComponent } from './authentification/register/register.component'
 import { HttpClientModule } from '@angular/common/http';
 import {  ToastrModule, ToastrService } from 'ngx-toastr';
-import { AdminComponent } from './admin/admin/admin.component';
 import { AddCategoryComponent } from './category/add-category/add-category.component';
 import { UpdateCategoryComponent } from './category/update-category/update-category.component';
 import { CorbeilleComponent } from './corbeille/corbeille.component';
 import { MatSliderModule } from '@angular/material/slider';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialogModule, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -33,11 +32,13 @@ import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
 import { AddAdminComponent } from './admin/add-admin/add-admin.component';
+import { UpdateAdminComponent } from './admin/update-admin/update-admin.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormatComponent } from './format/format.component';
 
 @NgModule({
   declarations: [
@@ -52,13 +53,13 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ShowLibrairyComponent,
     LoginComponent,
     RegisterComponent,
-    AdminComponent,
     AddCategoryComponent,
     UpdateCategoryComponent,
     CorbeilleComponent,
     AccueilComponent,
     AddAdminComponent,
-    
+    FormatComponent,
+    UpdateAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -85,9 +86,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     MatCardModule,
     NgxPaginationModule,
     FilterPipeModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[UpdateAdminComponent ]
 })
 export class AppModule { }

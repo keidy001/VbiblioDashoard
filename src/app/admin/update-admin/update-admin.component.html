@@ -1,0 +1,49 @@
+
+    <mat-card-title>Modifier Administrateur</mat-card-title>
+
+        <form class="matform" [formGroup]="formulaire" (ngSubmit)="update(formulaire)" novalidate>
+            <div>
+                <mat-form-field appearance="standard" class="mx-3">
+                    <mat-label>Nom</mat-label>
+                    <input matInput type="text" ngModel="{{admin?.nom}}"  formControlName="nom" required>
+                </mat-form-field>
+                
+                <mat-form-field appearance="standard" class="mx-3">
+                    <mat-label>Prénom</mat-label>
+                    <input matInput type="text" ngModel="{{admin?.prenom}}" formControlName="prenom" required>
+                </mat-form-field>
+            </div>
+            
+            <div>
+                <mat-form-field appearance="standard" class="mx-3">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" ngModel="{{admin?.email}}" formControlName="email" required>
+                </mat-form-field>
+                
+                <mat-form-field appearance="standard" class="mx-3">
+                    <mat-label>Téléphone</mat-label>
+                    <input matInput type="number" ngModel="{{admin?.telephone}}" formControlName="telephone" required>
+                </mat-form-field>
+            </div>
+            
+            <div>
+                <mat-form-field appearance="standard" class="mx-3">
+                    <mat-label>Login</mat-label>
+                    <input matInput type="text" ngModel="{{admin?.login}}" formControlName="login" required>
+                </mat-form-field>
+                
+                
+                <mat-form-field appearance="standard" class="mx-3">
+                    <mat-label>Rôle</mat-label>
+                    <mat-select formControlName="role" ngModel="{{admin?.role}}" required>
+                        <mat-option value="SuperAdmin">SuperAdmin</mat-option>
+                        <mat-option value="Admin">Admin</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="mx-3">
+                
+                <button mat-raised-button type="submit" classe="" >Valider</button>
+            </div>
+            
+        </form>

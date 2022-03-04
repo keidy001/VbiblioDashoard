@@ -37,6 +37,7 @@ export class ListLivreComponent implements OnInit {
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Oui, Supprimer!',
+      confirmButtonColor:'#6A9BFF',
       cancelButtonText: 'Non, Ne pas supprimer ',
     }).then((result) => {
       if (result.isConfirmed) {

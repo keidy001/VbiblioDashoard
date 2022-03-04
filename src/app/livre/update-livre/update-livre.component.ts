@@ -69,8 +69,9 @@ livreSelect(event){
     var obj: { [idCategory: string]: any} = {};
     obj['idCategory'] = fg.value.category;
     fg.value.category = obj;
-
-    this.livreService.updateLivre(fg.value.idLivre, fg.value).subscribe((data)=>{
+    console.log(fg.value);
+    
+    this.livreService.updateLivre(this.route.snapshot.params['id'], fg.value).subscribe((data)=>{
       
  
     })

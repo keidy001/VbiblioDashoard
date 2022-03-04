@@ -1,3 +1,4 @@
+import { FormatComponent } from './format/format.component';
 import { AddAdminComponent } from './admin/add-admin/add-admin.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { UpdateLivreComponent } from './livre/update-livre/update-livre.component';
@@ -12,12 +13,16 @@ import { ListLivreComponent } from './livre/list-livre/list-livre.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { AddLivreComponent } from './livre/add-livre/add-livre.component';
-import { AdminComponent } from './admin/admin/admin.component';
+import { ListLibrairyComponent } from './librairy/list-librairy/list-librairy.component';
 
 const routes: Routes = [
   {path:"accueil",component:AccueilComponent, canActivate:[AdminGuard]},
   {path:"addadmin",component:AddAdminComponent, canActivate:[AdminGuard]},
-
+  {path:"byformat/:format",component:FormatComponent, canActivate:[AdminGuard]},
+  
+  //Librairies 
+  {path:"listlibrary",component:ListLibrairyComponent, canActivate:[AdminGuard]},
+  
   {path:"listlivres",component:ListLivreComponent, canActivate:[AdminGuard]},
   {path:"addlivre",component:AddLivreComponent, canActivate:[AdminGuard]},
   {path: 'login',component: LoginComponent,canActivate:[LoginGuard]},
