@@ -14,6 +14,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { AddLivreComponent } from './livre/add-livre/add-livre.component';
 import { ListLibrairyComponent } from './librairy/list-librairy/list-librairy.component';
+import { AddLibrairyComponent } from './librairy/add-librairy/add-librairy.component';
 
 const routes: Routes = [
   {path:"accueil",component:AccueilComponent, canActivate:[AdminGuard]},
@@ -22,6 +23,7 @@ const routes: Routes = [
   
   //Librairies 
   {path:"listlibrary",component:ListLibrairyComponent, canActivate:[AdminGuard]},
+  {path:"addlibrairy",component:AddLibrairyComponent, canActivate:[AdminGuard]},
   
   {path:"listlivres",component:ListLivreComponent, canActivate:[AdminGuard]},
   {path:"addlivre",component:AddLivreComponent, canActivate:[AdminGuard]},

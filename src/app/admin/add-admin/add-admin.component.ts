@@ -91,6 +91,8 @@ delete(id: number) {
   });
 }
 update(id:number){
+  const dialogConfig = new MatDialogConfig();
+  dialogConfig.disableClose = true;
   this.dialog.open(UpdateAdminComponent,{
     data:id
       

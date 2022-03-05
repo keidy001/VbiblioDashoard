@@ -1,12 +1,12 @@
-
 <div class="row">
     <div class="col-md-12">
         <div class="card">
-            <form class="form-horizontal" [formGroup]="formulaire" (ngSubmit)="submitForm(formulaire)" novalidate>
+            <form class="matform" [formGroup]="formulaire" (ngSubmit)="submitForm(formulaire)" novalidate>
 
-                <div class="card-body">
-                    <div class="form-group row">
-                        <label class="col-sm-2 text-left control-label col-form-label">Image du livre</label>
+            
+                    <div class="form-group row col-md-6">
+
+                        <label>Image du livre</label>
                         <div class="col-md-3">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
                                 <div class="fileupload-new thumbnail"
@@ -31,9 +31,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row col-md-6">
 
-                        <label class="col-sm-2 text-left control-label col-form-label">Fichier du
+                        <label>Fichier du
                             livre</label>
                         <div class="controls col-md-5">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
@@ -52,64 +52,68 @@
 
                     </div>
                     <div class="form-group row">
-                        <label for="titre" class="col-sm-2 text-left control-label col-form-label">Titre du
-                            livre</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" id="titre" placeholder="Ajouter un titre"
+                        <mat-form-field appearance="fill" class="mx-4">
+                            <mat-label for="titre">Titre du livre</mat-label>
+                            <input type="text" matInput id="titre" placeholder="Ajouter un titre"
                                 formControlName="titre" required>
-                        </div>
-
-                        <label for="auteur" class="col-sm-2 text-left control-label col-form-label">Auteur</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" id="auteur" placeholder="Nom de l'auteur"
+                        </mat-form-field>
+                        <mat-form-field appearance="fill" class="mx-4">
+                            <mat-label for="titre">Auteur</mat-label>
+                            <input matInput type="text" id="auteur" placeholder="Nom de l'auteur"
                                 formControlName="auteur" required>
-                        </div>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill" class="mx-4">
+                            <mat-label for="prix">Prix</mat-label>
+                            <input type="number" matInput id="prix" placeholder="Prix du livre" formControlName="prix"
+                                required>
+                        </mat-form-field>
+                        
+
                     </div>
                     <div class="form-group row">
-                        <label for="prix" class="col-sm-2 text-left control-label col-form-label">Prix</label>
-                        <div class="col-sm-4">
-                            <input type="number" class="form-control" id="prix" placeholder="Prix du livre"
-                                formControlName="prix" required>
-                        </div>
 
-                        <label for="domaine" class="col-sm-2 text-left control-label col-form-label">Domaine</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" id="domaine" placeholder="Choisir un domaine"
-                                formControlName="domaine">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 text-left control-label col-form-label">Catégorie</label>
-                        <div class="col-md-4">
-                            <select class="select2 form-control custom-select" style="width: 100%; height:36px;" formControlName="category" required>
-                                <option *ngFor="let category of allCategory" value="{{category.idCategory}}">{{category.category}}</option>
-                            </select>
-                        </div>
 
-                        <label class="col-sm-2 text-left control-label col-form-label">Format</label>
-                        <div class="col-md-4">
-                            <select class="select2 form-control custom-select" style="width: 100%; height:36px;"
-                                formControlName="format" required>
-                                <option value="Ebook">Ebook</option>
-                                <option value="Audio">Audio</option>
-                                <option value="Document">Document</option>
-                            </select>
+                        
+                        <mat-form-field appearance="fill" class="mx-4">
+                            <mat-label>Catégorie</mat-label>
+                            <mat-select style="width: 100%; height:36px;" formControlName="category" required>
+                                <mat-option *ngFor="let category of allCategory" value="{{category.idCategory}}">
+                                    {{category.category}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field appearance="fill" class="mx-4">
+                                <mat-label>Librairie</mat-label>
+                                <mat-select style="width: 100%; height:36px;" formControlName="librairy" required>
+                                    <mat-option *ngFor="let librairy of alllibrairy" value="{{librairy.idLibrairy}}">
+                                        {{librairy.librairy}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            
+                            <mat-form-field appearance="fill" class="mx-4">
+                                <mat-label>Format</mat-label>
+                                <mat-select style="width: 100%; height:36px;" formControlName="format" required>
+                                    <mat-option value="Ebook">Ebook</mat-option>
+                                    <mat-option value="Audio">Audio</mat-option>
+                                    <mat-option value="Document">Document</mat-option>
+                                </mat-select>
+                            </mat-form-field>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="cono1" class="col-sm-2 text-left control-label col-form-label">Sommaire du
-                            livre</label>
-                        <div class="col-sm-4">
-                            <textarea class="form-control" formControlName="sommaire"></textarea>
-                        </div>
+                        <div class="form-group row">
 
-                        <label for="cono1" class="col-sm-2 text-left control-label col-form-label">Description du
-                            livre</label>
-                        <div class="col-sm-4">
-                            <textarea class="form-control" formControlName="description"></textarea>
-                        </div>
                     </div>
-                </div>
+                  
+                        <div class="form-group row">
+
+                        <mat-form-field appearance="fill" class="mx-4">
+                            <mat-label for="">Sommaire du livre</mat-label>
+                            <textarea matInput formControlName="sommaire"></textarea>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill" class="mx-4">
+                            <mat-label for="">Description du livre</mat-label>
+                            <textarea matInput formControlName="description"></textarea>
+                        </mat-form-field>
+                    </div>
+          
                 <div class="border-top">
                     <div class="card-body">
                         <button type="submit" class="btn btn-info" [disabled]="">Enregistrer</button>
@@ -117,3 +121,6 @@
                 </div>
             </form>
         </div>
+
+
+  

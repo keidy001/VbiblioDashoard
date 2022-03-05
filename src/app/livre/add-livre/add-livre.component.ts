@@ -1,3 +1,4 @@
+import { LibrairyService } from './../../service/librairy.service';
 import { LivreserviceService } from './../../service/livreservice.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, NgForm } from "@angular/forms";
@@ -16,10 +17,11 @@ export class AddLivreComponent implements OnInit {
   public imgfile : any = File;
   public livrefile : any = File;
   submitted = false;
-
+  alllibrairy:any;
   constructor(
     public livreService: LivreserviceService,
     public categoryService : CategoryService,
+    public librairyService : LibrairyService,
     public  route: ActivatedRoute,
     public router : Router,
     public toast: ToastrService,
@@ -40,6 +42,7 @@ export class AddLivreComponent implements OnInit {
       category: ['', Validators.required],
       format: ['', Validators.required],
       sommaire: ['', [Validators.required]],
+      librairy: ['', [Validators.required]],
       description: ['', [Validators.required]],
 
   },);
@@ -72,6 +75,7 @@ livreSelect(event){
         data.domaine=fg.value['domaine'],
         data.category=fg.value['category'],
         data.format=fg.value['format'],
+        data.format=fg.value['librairy'],
       console.log(data)
       this.livreService.updateLivre(data.idLivre, data).subscribe((data)=>{
         Swal.fire({
@@ -95,6 +99,12 @@ livreSelect(event){
 getCategory(){
   this.categoryService.getAllCategory().subscribe((data)=>{
     this.allCategory = data;
+    console.log("ok"+data);
+  })
+};
+getLibrairy(){
+  this.librairyService.getAllLibrairy().subscribe((data)=>{
+    this.alllibrairy = data;
     console.log("ok"+data);
   })
 };
