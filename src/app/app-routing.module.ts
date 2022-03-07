@@ -15,10 +15,16 @@ import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { AddLivreComponent } from './livre/add-livre/add-livre.component';
 import { ListLibrairyComponent } from './librairy/list-librairy/list-librairy.component';
 import { AddLibrairyComponent } from './librairy/add-librairy/add-librairy.component';
+import { ListAdminComponent } from './admin/list-admin/list-admin.component';
 
 const routes: Routes = [
   {path:"accueil",component:AccueilComponent, canActivate:[AdminGuard]},
+
+  //Admin Route
+  {path:"listadmin",component:ListAdminComponent, canActivate:[AdminGuard]},
   {path:"addadmin",component:AddAdminComponent, canActivate:[AdminGuard]},
+  
+  
   {path:"byformat/:format",component:FormatComponent, canActivate:[AdminGuard]},
   
   //Librairies 

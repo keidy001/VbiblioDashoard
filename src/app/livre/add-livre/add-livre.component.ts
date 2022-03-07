@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CategoryService } from 'src/app/service/category.service';
 import Swal from 'sweetalert2';
+import { error } from '@angular/compiler/src/util';
 @Component({
   selector: 'app-add-livre',
   templateUrl: './add-livre.component.html',
@@ -30,7 +31,8 @@ export class AddLivreComponent implements OnInit {
   ngOnInit(): void {
 
     this.getCategory();
-    console.log('tes'+this.allCategory);
+    this.getLibrairy();
+
     this.formulaire = this.formBuilder.group({
 
       // photo: ['', Validators.required],
@@ -38,11 +40,10 @@ export class AddLivreComponent implements OnInit {
       titre: ['', Validators.required],
       auteur: ['', Validators.required],
       prix: ['', Validators.required],
-     domaine: ['', Validators.required],
       category: ['', Validators.required],
+      librairy: ['', [Validators.required]],
       format: ['', Validators.required],
       sommaire: ['', [Validators.required]],
-      librairy: ['', [Validators.required]],
       description: ['', [Validators.required]],
 
   },);
@@ -61,9 +62,16 @@ livreSelect(event){
 }
 
   submitForm(fg : FormGroup){
-    var obj: { [idCategory: string]: any} = {};
-    obj['idCategory'] = fg.value.category;
-    fg.value.category = obj;
+    console.log("befor"+fg.value.librairy);
+    
+    var cat: { [idCategory: string]: any} = {};
+    cat['idCategory'] = fg.value.category;
+    fg.value.category = cat;
+
+    var lib: { [idLibrairy: string]: any} = {};
+    lib['idLibrairy'] = fg.value.librairy;
+    fg.value.librairy = lib;
+console.log("after"+fg.value.librairy);
 
     this.livreService.addLivre( fg.value, this.imgfile, this.livrefile ).subscribe((data)=>{
       console.log(data)
@@ -72,10 +80,10 @@ livreSelect(event){
         data.description=fg.value['description'],
         data.sommaire=fg.value['sommaire'],
         data.prix=fg.value['prix'],
-        data.domaine=fg.value['domaine'],
+        // data.domaine=fg.value['domaine'],
         data.category=fg.value['category'],
         data.format=fg.value['format'],
-        data.format=fg.value['librairy'],
+        data.librairy=fg.value['librairy'],
       console.log(data)
       this.livreService.updateLivre(data.idLivre, data).subscribe((data)=>{
         Swal.fire({
