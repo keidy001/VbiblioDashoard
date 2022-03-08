@@ -1,6 +1,7 @@
+import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { LibrairyService } from 'src/app/service/librairy.service';
-import { MatDialog ,MatDialogConfig  } from '@angular/material/dialog';
+
 import { AddLibrairyComponent } from '../add-librairy/add-librairy.component';
 
 @Component({
@@ -12,7 +13,7 @@ export class ListLibrairyComponent implements OnInit {
   allLibrairie: any;
   constructor(
      private librairieservice: LibrairyService,
-     private dialog:MatDialog,
+    private dialog:MatDialog
 
   ) { }
 
