@@ -1,10 +1,11 @@
-<mat-card class="row">
+<a class="btn btn-info m-4" href="/listlivres" style="float: right;">Retour</a>
+<div class="row">
     <div class="col-md-12">
         <div class="card">
-            <form class="matform" [formGroup]="formulaire" (ngSubmit)="submitForm(formulaire)" novalidate  style="margin: auto;">
+            <form class="matform" [formGroup]="formulaire" (ngSubmit)="submitForm(formulaire)" novalidate>
 
             
-                    <div class="form-group row col-md-6 mt-5">
+                    <div class="form-group row col-md-6">
 
                         <label>Image du livre</label>
                         <div class="col-md-3">
@@ -16,7 +17,7 @@
                                 <div class="fileupload-preview fileupload-exists thumbnail"
                                     style="max-width: 200px; max-height: 150px; line-height: 20px; "></div>
                                 <div>
-                                    <span class="btn btn-secondary btn-file">
+                                    <span class="btn btn-primary btn-file">
                                         <span class="fileupload-new"><i class="fa fa-paperclip"></i> Choisir une
                                             image</span>
                                         <span class="fileupload-exists"><i class="fa fa-undo"></i> Changer</span>
@@ -37,7 +38,7 @@
                             livre</label>
                         <div class="controls col-md-5">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
-                                <span class="btn btn-secondary btn-file">
+                                <span class="btn btn-primary btn-file">
                                     <span class="fileupload-new"><i class="fa fa-paperclip"></i> Choisir un
                                         fichier</span>
                                     <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
@@ -46,7 +47,7 @@
                                 </span>
                                 <span class="fileupload-preview" style="margin-left:5px;"></span>
                                 <a href="" class="close fileupload-exists" data-dismiss="fileupload"
-                                    style="float: none; margin-left:5px;"></a>
+                                    style="float: none; margin-left:5px;" ></a>
                             </div>
                         </div>
 
@@ -67,8 +68,13 @@
                             <input type="number" matInput id="prix" placeholder="Prix du livre" formControlName="prix"
                                 required>
                         </mat-form-field>
+                        
+
                     </div>
                     <div class="form-group row">
+
+
+                        
                         <mat-form-field appearance="fill" class="mx-4">
                             <mat-label>Catégorie</mat-label>
                             <mat-select style="width: 100%; height:36px;" formControlName="category" required>
@@ -79,19 +85,19 @@
                             <mat-form-field appearance="fill" class="mx-4">
                                 <mat-label>Librairie</mat-label>
                                 <mat-select style="width: 100%; height:36px;" formControlName="librairy" required>
-                                    <mat-option *ngFor="let librairy of alllibrairy" value="{{librairy.idLibrairy}}">
-                                        {{librairy.nom}}</mat-option>
+                                    <mat-option *ngFor="let librairy of alllibrairy" value="{{librairy.idLibrairy}}">{{librairy.nom}}</mat-option>
                                     </mat-select>
                                 </mat-form-field>
                             
-                            <mat-form-field appearance="fill" class="mx-4">
-                                <mat-label>Format</mat-label>
-                                <mat-select style="width: 100%; height:36px;" formControlName="format" required>
-                                    <mat-option value="Ebook">Ebook</mat-option>
-                                    <mat-option value="Audio">Audio</mat-option>
-                                    <mat-option value="Document">Document</mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                                <mat-form-field appearance="fill" class="mx-4">
+                                    <mat-label>Type</mat-label>
+                                    <mat-select style="width: 100%; height:36px;" formControlName="format" required>
+                                        <mat-option value="Ebook">Ebook</mat-option>
+                                        <mat-option value="AudioBook">AudioBook</mat-option>
+                                        <mat-option value="Article">Articles</mat-option>
+                                        <mat-option value="Memoire">Memoires</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
                         </div>
                         <div class="form-group row">
 
