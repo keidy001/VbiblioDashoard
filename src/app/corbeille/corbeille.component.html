@@ -1,9 +1,9 @@
 
 <section class="wrapper">
-    <h3><i class="fa fa-angle-right"></i> Gestion des Livres</h3>
+    <h3><i class="fa fa-angle-right"></i> Corbeille</h3>
     <!-- row -->
     <div class="row mt">
-      <div class="col-md-12">
+      <div class="col-md-6">
         <div>
             <a routerLink="/addlivre"class="btn btn-theme" style="margin: 2%;"><i class="fa fa-plus-circle"></i> Ajouter Livre</a>
         </div>
@@ -13,17 +13,35 @@
 
             <thead>
               <tr>
-                <th><i class="fa fa-picture-o"></i> Image</th>
-                <th class="hidden-phone"><i class="fa fa-question-circle"></i> Titre</th>
-                <th><i class="fa fa-user"></i> Auteur</th>
-                <th><i class="fa fa-book"></i> Format</th>
-                <th><i class="fa fa-money"></i> Prix</th>
+                <!-- <th><i class="fa fa-picture-o"></i> Image</th> -->
+                
+<!--   
+  <a class="btn btn-info m-4" (click)="add()">Ajouter</a> -->
+  <a class="btn btn-info m-4" href="/accueil" style="float: right;">Retour</a>
+  <div class="row">
+    <div class="col-10">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Liste des librairies</h4>
+                <div class="table-responsive">
+                    <table id="zero_config" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Titre</th>
+                                <th>Auteur</th>
+                                <th>Format</th>
+                                <th>Actions</th>
+                               
+                                
+                            </tr>
+                        </thead>
+                <!-- <th><i class="fa fa-money"></i> Prix</th>
                 <th><i class="fa fa-tags"></i> Catégorie</th>
                 <th><i class="fa fa-bookmark"></i> Domaine</th>
-                <th><i class=" fa fa-edit"></i> Description</th>
+                <th><i class=" fa fa-edit"></i> Description</th> -->
                 <th></th>
-              </tr>
-            </thead>
+              <!-- </tr> -->
+            <!-- </thead> -->
             <tbody *ngFor="let livre of livres">
               <tr  *ngIf="livre.deleted">
                 <td>
@@ -38,8 +56,7 @@
                 <td>{{livre.description}}</td>
 
                 <td>
-                  <button class="btn btn-success btn-xs "  style="margin-left: 4%;"><i class="fa fa-check"></i></button>
-                  <button class="btn btn-primary btn-xs" style="margin-left: 4%;"><i class="fa fa-pencil"></i></button>
+
                   <button class="btn btn-danger btn-xs" (click)="restore(livre.idLivre)"  style="margin-left: 4%;"><i class="fa fa-trash-o "></i></button>
                 </td>
               </tr>
@@ -51,4 +68,4 @@
       <!-- /col-md-12 -->
     </div>
     <!-- /row -->
-  </section>
+  <!-- </section> -->

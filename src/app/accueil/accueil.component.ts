@@ -27,24 +27,24 @@ export class AccueilComponent implements OnInit {
   ngOnInit(): void {
 
     //Methode for count total Ebook
-    this.livreService.livreByFormat('Ebook').subscribe((data)=>{
+    this.livreService.livreByFormatNotDeleted('Ebook', false).subscribe((data)=>{
       this.nombreEbook = data;
       this.nombreEbook = this.nombreEbook.length;
     })
 
     //Methode for count total Audio
-      this.livreService.livreByFormat('AudioBook').subscribe((data)=>{
+      this.livreService.livreByFormatNotDeleted('AudioBook',false).subscribe((data)=>{
         this.nombreAudiobook = data;
         this.nombreAudiobook = this.nombreAudiobook.length;
   })
 
       //Methode for count total Article
-      this.livreService.livreByFormat('Article').subscribe((data)=>{
+      this.livreService.livreByFormatNotDeleted('Article',false ).subscribe((data)=>{
         this.nombreArticle = data;
         this.nombreArticle = this.nombreArticle.length;
   })
         //Methode for count total Memoire
-        this.livreService.livreByFormat('Memoire').subscribe((data)=>{
+        this.livreService.livreByFormatNotDeleted('Memoire', false).subscribe((data)=>{
           this.nombreMemoire = data;
           this.nombreMemoire = this.nombreMemoire.length;
     })

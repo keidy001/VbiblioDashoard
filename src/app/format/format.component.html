@@ -1,5 +1,6 @@
 
-  
+  <a class="btn btn-info m-4" href="/accueil" >Retour</a>
+  <a class="btn btn-info m-4" href="/addlivre" style="float: right;">Ajouter</a>
   <div class="row">
     <div class="col-12">
         <div class="card">
@@ -16,7 +17,7 @@
                                 <th>Catégorie</th>
                                 <th>Domaine</th>
                                 <th>Action</th>
-                              
+
                             </tr>
                         </thead>
                         <tbody *ngFor="let livre of allItems | filter:searchText | paginate : {itemsPerPage : 5, currentPage: p} ; let i = index" [attr.data-index]="i">
@@ -27,14 +28,14 @@
                                 <td style="vertical-align: middle;">{{livre.prix}}</td>
                                 <td style="vertical-align: middle;">{{livre.category?.category}}</td>
                                 <td style="vertical-align: middle;">{{livre.domaine}}</td>
-                       
-                                <td> 
+
+                                <td>
                                   <button class="btn btn-success btn-xs "  style="margin-left: 4%;"><i class="mdi mdi-eye"></i></button>
                                   <button class="btn btn-primary btn-xs" routerLink="/updatelivre/{{livre.idLivre}}"style="margin-left: 4%;"><i class="mdi mdi-border-color"></i></button>
                                   <button class="btn btn-danger btn-xs" (click)="delete(livre.idLivre)"  style="margin-left: 4%;"><i class="mdi mdi-delete"></i></button>
                                </td>
                             </tr>
-                         </tbody>   
+                         </tbody>
                         </table>
                         <pagination-controls (pageChange)="p = $event" nextLabel="Suivant" previousLabel="Précedent"></pagination-controls>
                 </div>

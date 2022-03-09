@@ -11,7 +11,7 @@ export class LivreserviceService {
   url='http://localhost:8080/api/livre';
   img='http://localhost:8080/api/livre/photo/';
   contentLivre='http://localhost:8080/api/livre/livre/';
- //Remote url
+ //Remote url On heroku
  url1='https://vbiblio.herokuapp.com/api/livre';
  img1='https://vbiblio.herokuapp.com/api/photo/';
  contentLivre1='https://vbiblio.herokuapp.com/api/livre/livre/';
@@ -33,7 +33,7 @@ export class LivreserviceService {
 
       return this.http.post(this.url+"/ajouter/",forms);
 
-    } 
+    }
     getAllLivre(){
       return this.http.get(this.url +"/byStatus/0");
     }
@@ -60,5 +60,9 @@ export class LivreserviceService {
     livreByFormat(format :String){
       return this.http.get(this.url+"/livrebyformat/"+format)
     }
-  
+
+    livreByFormatNotDeleted(format:string, state: boolean){
+      return this.http.get(this.url+"/formatNotDeleleted/"+format+"/"+state)
+    }
+
 }
