@@ -23,14 +23,14 @@ const routes: Routes = [
   //Admin Route
   {path:"listadmin",component:ListAdminComponent, canActivate:[AdminGuard]},
   {path:"addadmin",component:AddAdminComponent, canActivate:[AdminGuard]},
-  
-  
+
+
   {path:"byformat/:format",component:FormatComponent, canActivate:[AdminGuard]},
-  
-  //Librairies 
+
+  //Librairies
   {path:"listlibrary",component:ListLibrairyComponent, canActivate:[AdminGuard]},
   {path:"addlibrairy",component:AddLibrairyComponent, canActivate:[AdminGuard]},
-  
+
   {path:"listlivres",component:ListLivreComponent, canActivate:[AdminGuard]},
   {path:"addlivre",component:AddLivreComponent, canActivate:[AdminGuard]},
   {path: 'login',component: LoginComponent,canActivate:[LoginGuard]},

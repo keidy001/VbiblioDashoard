@@ -50,9 +50,9 @@ export class ListLivreComponent implements OnInit {
   }
 
   update(){
-  
- 
-   
+
+
+
 
   }
 }
