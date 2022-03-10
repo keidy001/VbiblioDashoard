@@ -7,14 +7,15 @@ import { Observable, throwError } from 'rxjs';
 })
 export class LivreserviceService {
 
- //Local url
-  url='http://localhost:8080/api/livre';
-  img='http://localhost:8080/api/livre/photo/';
-  contentLivre='http://localhost:8080/api/livre/livre/';
- //Remote url On heroku
- url1='https://vbiblio.herokuapp.com/api/livre';
- img1='https://vbiblio.herokuapp.com/api/photo/';
- contentLivre1='https://vbiblio.herokuapp.com/api/livre/livre/';
+  //Local url
+  url1='http://localhost:8080/api/livre';
+  img1='http://localhost:8080/api/livre/photo/';
+  contentLivre1='http://localhost:8080/api/livre/livre/';
+
+  //Remote url On heroku
+  url='https://virtualbiblio.herokuapp.com/api/livre';
+  img='https://virtualbiblio.herokuapp.com/api/livre/photo/';
+  contentLivre='https://virtualbiblio.herokuapp.com/api/livre/livre/';
 
   constructor(
     private http : HttpClient)

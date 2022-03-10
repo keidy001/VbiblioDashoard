@@ -8,10 +8,10 @@ export class CategoryService {
 
 
  //Local url
- url='http://localhost:8080/api/category';
+ url1='http://localhost:8080/api/category';
 
  //Remote url
- url1 = 'https://vbiblio.herokuapp.com/api/category'
+ url = 'https://virtualbiblio.herokuapp.com/api/category'
   constructor(
     private http : HttpClient)
      { }

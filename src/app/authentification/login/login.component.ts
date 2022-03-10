@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -36,19 +37,24 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('loginStatus', JSON.stringify(loginStatus));
       }else{
 
-        this.toast.error("Login ou mot de passe incorrect");
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Login ou mot de passe incorrect',
+          showConfirmButton: false,
+          timer: 3000
+        })
         this.router.navigate(["/login"]);
-        console.log("login non connecter");
-      
-          
-        } 
-        
-      }, 
-      error=>{
-        this.toast.error(error);
-      }
-      )
-    }
-  
-}
+        }
 
+      },
+      (err) => {  Swal.fire({
+        position: 'center',
+        icon: 'warning',
+        title: 'Oops! imposible d\'acceder au serveur ',
+        showConfirmButton: false,
+        timer: 3000}
+      )
+    })
+}
+}
