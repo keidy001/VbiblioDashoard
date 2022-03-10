@@ -8,13 +8,13 @@ import { Observable, throwError } from 'rxjs';
 export class LivreserviceService {
 
  //Local url
-  url='http://localhost:8080/api/livre';
-  img='http://localhost:8080/api/livre/photo/';
-  contentLivre='http://localhost:8080/api/livre/livre/';
+  url1='http://localhost:8080/api/livre';
+  img1='http://localhost:8080/api/livre/photo/';
+  contentLivre1='http://localhost:8080/api/livre/livre/';
  //Remote url
- url1='https://vbiblio.herokuapp.com/api/livre';
- img1='https://vbiblio.herokuapp.com/api/photo/';
- contentLivre1='https://vbiblio.herokuapp.com/api/livre/livre/';
+ url='https://vbiblio.herokuapp.com/api/livre';
+ img='https://vbiblio.herokuapp.com/api/photo/';
+ contentLivre='https://vbiblio.herokuapp.com/api/livre/livre/';
 
   constructor(
     private http : HttpClient)
