@@ -1,3 +1,4 @@
+import { ShowAdminComponent } from './../show-admin/show-admin.component';
 import { UpdateAdminComponent } from './../update-admin/update-admin.component';
 import { MatDialog ,MatDialogConfig  } from '@angular/material/dialog';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -90,9 +91,19 @@ delete(id: number) {
     }
   });
 }
-update(id:number){
-  this.dialog.open(UpdateAdminComponent,{
+show(id:number){
+  const dialogConfig = new MatDialogConfig();
+  dialogConfig.disableClose = true;
+  this.dialog.open(ShowAdminComponent,{
     data:id
+  })
+}
+update(id:number){
+  const dialogConfig = new MatDialogConfig();
+  dialogConfig.disableClose = true;
+  this.dialog.open(UpdateAdminComponent,{
+    data:id,
+    width:"50%"
       
     
   }

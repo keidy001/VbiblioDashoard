@@ -34,10 +34,10 @@ export class FormatComponent implements OnInit {
 
 getByFormat(format:any){
   //Methode for count total Ebook
-  this.livreService.livreByFormat(format).subscribe((data)=>{
+  this.livreService.livreByFormatNotDeleted(format, false).subscribe((data)=>{
     this.allItems = data;
     console.log(this.allItems);
-    
+
   })
 }
 

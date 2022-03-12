@@ -1,1 +1,55 @@
-<p>add-librairy works!</p>
+
+
+    <mat-card>
+        <mat-card-title>Ajouter des Librairies</mat-card-title>
+        <mat-card-actions>
+            <form class="matform" [formGroup]= "formulaire" (ngSubmit)="SubmitForm(formulaire)" novalidate>
+            <div>
+                <mat-form-field appearance="standard" class="mx-3">
+                    <mat-label>Nom</mat-label>
+                    <input matInput type="text" formControlName="nom" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="standard" class="mx-3" aria-autocomplete="off">
+                    <mat-label>Adresse</mat-label>
+                    <input matInput type="text" formControlName="adresse" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="standard" class="mx-3">
+                    <mat-label>Téléphone</mat-label>
+                    <input matInput type="number" formControlName="telephone" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="standard" class="mx-3">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="text" formControlName="email" required>
+                </mat-form-field>
+                <!-- <mat-form-field appearance="standard" class="mx-3">
+                    <mat-label>Admin</mat-label>
+                    <input matInput type="text" formControlName="admin" required>
+                </mat-form-field> -->
+
+                <!-- <div class="image">
+                    <table class="table table-striped table-advance table-hover">
+                        <thead>
+                            <tr>
+                                <th><i class="fa fa-picture-o"></i> Image</th>
+                            </tr>
+                        </thead>
+                        </table>
+                </div> -->
+
+                <div class="mx-3">
+                    <button [disabled]="formulaire.invalid" class="btn btn-info" type="submit" color="primary">Valider</button>
+                    <button class="btn btn-info float-right" type="reset" color="primary">Annuler</button>
+                </div>
+            </div>
+            </form>
+
+        </mat-card-actions>
+    </mat-card>
+
+
+
+
+

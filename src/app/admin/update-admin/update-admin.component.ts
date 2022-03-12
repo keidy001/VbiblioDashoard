@@ -1,3 +1,4 @@
+import { AddAdminComponent } from './../add-admin/add-admin.component';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/service/admin.service';
@@ -5,7 +6,7 @@ import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormGroup, Validators,FormBuilder } from '@angular/forms';
 import Swal from 'sweetalert2';
 import {  MAT_DIALOG_DATA } from '@angular/material/dialog';
-
+import { MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-update-admin',
   templateUrl: './update-admin.component.html',
@@ -21,6 +22,7 @@ export class UpdateAdminComponent implements OnInit {
     private toast:ToastrService,
     private route:ActivatedRoute,
     public formBuilder: FormBuilder,
+    public matDialogRef:MatDialogRef<AddAdminComponent>,
     @Inject(MAT_DIALOG_DATA) public idAdmin: any
   ) { }
 
@@ -61,6 +63,10 @@ export class UpdateAdminComponent implements OnInit {
         showConfirmButton: false,
         timer: 3000
       })
-  })
+    })
+    this.onClose() 
+  }
+  onClose(){
+    this.matDialogRef.close();
   }
 }

@@ -7,10 +7,10 @@ import { Injectable } from '@angular/core';
 export class AdminService {
 
  //Local url
-  url='http://localhost:8080/api/admin';
+  url1='http://localhost:8080/api/admin';
 
-//Remote url
-url1 = 'https://vbiblio.herokuapp.com/api/admin'
+  //Remote url
+  url = 'https://virtualbiblio.herokuapp.com/api/admin';
 
   constructor(
     private http : HttpClient)

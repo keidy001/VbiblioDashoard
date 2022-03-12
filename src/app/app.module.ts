@@ -39,6 +39,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormatComponent } from './format/format.component';
+import { ShowAdminComponent } from './admin/show-admin/show-admin.component';
+import { ListAdminComponent } from './admin/list-admin/list-admin.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import { FormatComponent } from './format/format.component';
     AccueilComponent,
     AddAdminComponent,
     FormatComponent,
-    UpdateAdminComponent
+    UpdateAdminComponent,
+    ShowAdminComponent,
+    ListAdminComponent
   ],
   imports: [
     BrowserModule,

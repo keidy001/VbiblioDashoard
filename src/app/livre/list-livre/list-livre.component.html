@@ -1,6 +1,7 @@
 
-  
+
   <a class="btn btn-info m-4" href="/addlivre">Ajouter</a>
+  <a class="btn btn-info m-4" href="/accueil" style="float: right;">Retour</a>
   <div class="row">
     <div class="col-12">
         <div class="card">
@@ -13,28 +14,26 @@
                                 <th>Image</th>
                                 <th>Titre</th>
                                 <th>Auteur</th>
-                                <th>Format</th>
+                                <th>Types</th>
                                 <th>Prix</th>
                                 <th>Catégorie</th>
-                                <th>Domaine</th>
-                                <th>Description</th>
-                              
+                                <th>Actions</th>
+
                             </tr>
                         </thead>
-                        <tbody *ngFor="let livre of allLivres">
+                        <tbody *ngFor="let livre of allLivres" >
                             <tr>
                                 <td><img src="{{image}}{{livre.idLivre}}" style="height:100px" ></td>
                                 <td>{{livre.titre}}</td>
-                                <td>{{livre.titre}}</td>
                                 <td>{{livre.auteur}}</td>
                                 <td>{{livre.format}}</td>
-                                <td>{{livre.prix}}</td>
+                                <td>{{livre.prix| currency:" ":true:"1.0"}} fcfa</td>
                                 <td>{{livre.category?.category}}</td>
-                       
-                                <td> 
-                                  <a class="btn"  style="margin-left: 4%;"><i class="mdi mdi-eye" style="font-size: 180%;"></i></a>
-                                  <a routerLink="/updatelivre/{{livre.idLivre}}"style="margin-left: 4%;"><i class="mdi mdi-border-color" style="font-size: 170%;"></i></a>
-                                  <a class="btn" (click)="delete(livre.idLivre)"  style="margin-left: 4%;"><i class="mdi mdi-delete" style="font-size: 180%;color: red;"></i></a>
+
+                                <td>
+                                  <a class="btn"><i class="mdi mdi-eye" style="font-size: 180%;"></i></a>
+                                  <a routerLink="/updatelivre/{{livre.idLivre}}"><i class="mdi mdi-border-color" style="font-size: 170%;"></i></a>
+                                  <a class="btn" (click)="delete(livre.idLivre)"><i class="mdi mdi-delete" style="font-size: 180%;color: red;"></i></a>
                                </td>
                             </tr>
 
