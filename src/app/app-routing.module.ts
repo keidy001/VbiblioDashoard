@@ -19,10 +19,10 @@ const routes: Routes = [
   {path:"accueil",component:AccueilComponent, canActivate:[AdminGuard]},
   {path:"addadmin",component:AddAdminComponent, canActivate:[AdminGuard]},
   {path:"byformat/:format",component:FormatComponent, canActivate:[AdminGuard]},
-  
-  //Librairies 
+
+  //Librairies
   {path:"listlibrary",component:ListLibrairyComponent, canActivate:[AdminGuard]},
-  
+
   {path:"listlivres",component:ListLivreComponent, canActivate:[AdminGuard]},
   {path:"addlivre",component:AddLivreComponent, canActivate:[AdminGuard]},
   {path: 'login',component: LoginComponent,canActivate:[LoginGuard]},

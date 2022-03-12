@@ -13,7 +13,8 @@ import { Component, OnInit } from '@angular/core';
 export class AccueilComponent implements OnInit {
   nombreEbook :any;
   nombreAudiobook:any;
-  nombreDocument:any;
+  nombreArticle:any;
+  nombreMemoire:any;
   nombreLibrairy:any;
   constructor(
     public livreService :LivreserviceService,
@@ -37,11 +38,16 @@ export class AccueilComponent implements OnInit {
         this.nombreAudiobook = this.nombreAudiobook.length;
   })
 
-      //Methode for count total Document
-      this.livreService.livreByFormat('Document').subscribe((data)=>{
-        this.nombreDocument = data;
-        this.nombreDocument = this.nombreDocument.length;
+      //Methode for count total Article
+      this.livreService.livreByFormat('Article').subscribe((data)=>{
+        this.nombreArticle = data;
+        this.nombreArticle = this.nombreArticle.length;
   })
+        //Methode for count total Mémoire
+        this.livreService.livreByFormat('Memoire').subscribe((data)=>{
+          this.nombreMemoire = data;
+          this.nombreMemoire = this.nombreMemoire.length;
+    })
       //Methode for count total Library
       this.librairy.getAllLibrairy().subscribe((data)=>{
         this.nombreLibrairy = data;
