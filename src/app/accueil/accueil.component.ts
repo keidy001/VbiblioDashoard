@@ -13,8 +13,13 @@ import { Component, OnInit } from '@angular/core';
 export class AccueilComponent implements OnInit {
   nombreEbook :any;
   nombreAudiobook:any;
+<<<<<<< HEAD
+  nombreArticle:any;
+  nombreMemoire:any;
+=======
   nombreMemoire:any;
   nombreArticle:any;
+>>>>>>> bcc7a26e2ff8e5ffcb7a640177cb3c80bd503426
   nombreLibrairy:any;
   constructor(
     public livreService :LivreserviceService,
@@ -39,12 +44,21 @@ export class AccueilComponent implements OnInit {
   })
 
       //Methode for count total Article
+<<<<<<< HEAD
+      this.livreService.livreByFormat('Article').subscribe((data)=>{
+        this.nombreArticle = data;
+        this.nombreArticle = this.nombreArticle.length;
+  })
+        //Methode for count total Mémoire
+        this.livreService.livreByFormat('Memoire').subscribe((data)=>{
+=======
       this.livreService.livreByFormatNotDeleted('Article',false ).subscribe((data)=>{
         this.nombreArticle = data;
         this.nombreArticle = this.nombreArticle.length;
   })
         //Methode for count total Memoire
         this.livreService.livreByFormatNotDeleted('Memoire', false).subscribe((data)=>{
+>>>>>>> bcc7a26e2ff8e5ffcb7a640177cb3c80bd503426
           this.nombreMemoire = data;
           this.nombreMemoire = this.nombreMemoire.length;
     })
