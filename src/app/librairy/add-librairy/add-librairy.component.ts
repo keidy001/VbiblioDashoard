@@ -12,10 +12,11 @@ import Swal from 'sweetalert2';
 })
 export class AddLibrairyComponent implements OnInit {
   formulaire:FormGroup;
-  librairie : any
+  librairie : any;
+  public imgfile : any = File;
   constructor(
-    public formBuilder: FormBuilder, 
-    private servicelibrairie: LibrairyService, 
+    public formBuilder: FormBuilder,
+    private servicelibrairie: LibrairyService,
     private router: Router,
     private matDialogRef:MatDialogRef<ListLibrairyComponent>,
 
@@ -23,8 +24,8 @@ export class AddLibrairyComponent implements OnInit {
 
   ngOnInit(): void {
     // this. listLibrairie()
-    
-    this.formulaire = this.formBuilder.group({ 
+
+    this.formulaire = this.formBuilder.group({
       nom: ['', Validators.required],
       adresse: ['', Validators.required],
       telephone: ['', Validators.required],
@@ -36,9 +37,13 @@ export class AddLibrairyComponent implements OnInit {
     },);
   }
 
+  imgSelect(event){
+    const img = event.target.files[0];
+   this.imgfile =img;
+  }
   SubmitForm(form:FormGroup){
-   
-   this.servicelibrairie.addLibrairy(form.value).subscribe((data)=>{
+
+   this.servicelibrairie.addLibrairy(form.value, this.imgfile).subscribe((data)=>{
 
   this.onCloseDialog();
     Swal.fire({

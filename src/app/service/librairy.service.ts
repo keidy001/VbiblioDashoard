@@ -19,7 +19,10 @@ export class LibrairyService {
 
   //-------------------------------------------------------Gestion librairy --------------
 
-addLibrairy(data:any){
+addLibrairy(data:any, img:File){
+  const forms: FormData = new FormData();
+  forms.append("file", img)
+  forms.append("data", data)
 
     return this.http.post(this.url+"/ajouter/", data, {responseType:"text"});
   }

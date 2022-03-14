@@ -31,14 +31,11 @@ const routes: Routes = [
 
   //Librairies
   {path:"listlibrary",component:ListLibrairyComponent, canActivate:[AdminGuard]},
-<<<<<<< HEAD
-=======
+
   {path:"addlibrairy",component:AddLibrairyComponent, canActivate:[AdminGuard]},
-<<<<<<< HEAD
+
   {path:"showlibrairy/:id",component:ShowLibrairyComponent, canActivate:[AdminGuard]},
-=======
->>>>>>> bcc7a26e2ff8e5ffcb7a640177cb3c80bd503426
->>>>>>> 4649e486f04ab9669f4158cd169e8413568fe8ad
+
 
   {path:"listlivres",component:ListLivreComponent, canActivate:[AdminGuard]},
   {path:"addlivre",component:AddLivreComponent, canActivate:[AdminGuard]},
