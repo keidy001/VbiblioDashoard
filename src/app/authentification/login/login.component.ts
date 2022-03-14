@@ -1,9 +1,12 @@
+import { MatDialog } from '@angular/material/dialog';
 import {Md5} from 'ts-md5/dist/md5';
 import { AdminService } from './../../service/admin.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
+import Swal from 'sweetalert2';
+import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +18,9 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private service: AdminService,
-    public toast: ToastrService, public router: Router
+    public toast: ToastrService, 
+    public router: Router,
+    public matDialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -29,26 +34,37 @@ export class LoginComponent implements OnInit {
         console.log(res);
         this.loginInfo = res;
         let loginStatus = true
-        //this.router.navigate(["/accueil"]);
         location.replace("/accueil");
         localStorage.setItem('loginInfo', JSON.stringify(this.loginInfo));
         localStorage.setItem('userRole', JSON.stringify(this.loginInfo.role));
         localStorage.setItem('loginStatus', JSON.stringify(loginStatus));
       }else{
 
-        this.toast.error("Login ou mot de passe incorrect");
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Login ou mot de passe incorrect',
+          showConfirmButton: false,
+          timer: 3000
+        })
         this.router.navigate(["/login"]);
-        console.log("login non connecter");
-      
-          
-        } 
-        
-      }, 
-      error=>{
-        this.toast.error(error);
-      }
+        }
+
+      },
+      (err) => {  Swal.fire({
+        position: 'center',
+        icon: 'warning',
+        title: 'Oops! imposible d\'acceder au serveur ',
+        showConfirmButton: false,
+        timer: 3000}
       )
-    }
-  
+    })
 }
 
+async forgotPsd(){
+    const modal = this.matDialog.open(ForgotPasswordComponent,{
+      width:'40%',
+      
+    })
+}
+}

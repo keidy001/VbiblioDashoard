@@ -11,7 +11,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~13.1.0",
-    "@angular/cdk": "^13.2.3",
+    "@angular/cdk": "^13.2.6",
     "@angular/common": "~13.1.0",
     "@angular/compiler": "~13.1.0",
     "@angular/core": "~13.1.0",
@@ -28,7 +28,7 @@
     "ngx-pagination": "^5.1.1",
     "ngx-toastr": "^14.2.1",
     "primeicons": "^5.0.0",
-    "primeng": "^13.0.4",
+    "primeng": "^13.2.1",
     "rxjs": "~7.4.0",
     "sweetalert2": "^11.4.2",
     "ts-md5": "^1.2.11",

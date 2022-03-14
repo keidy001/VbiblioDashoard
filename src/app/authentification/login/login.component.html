@@ -1,10 +1,10 @@
-<div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-light" style="background-image: url('../../../assets/asset/ima ges/bg-img.jpeg');  background-repeat: no-repeat;">
+<!-- <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-light" style="background-image: url('../../../assets/asset/ima ges/bg-img.jpeg');  background-repeat: no-repeat;">
   <div class="auth-box bg-dark  border-secondary p-t-10 " style="opacity: 0.9;">
       <div id="loginform">
           <div class="text-center   " >
               <span class="db py-3" ><img src="../../../assets/asset/images/logo-icon.png" class="pb-3" alt="logo" /></span>
           </div>
-          <!-- Form -->
+        
           <form class="form-horizontal p-t-20" id="loginform" action="index.html"  #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)" novalidate autocomplete="nope">
               <div class="row">
                   <div class="col-12">
@@ -39,16 +39,16 @@
               <span class="text-white">Enter your e-mail address below and we will send you instructions how to recover a password.</span>
           </div>
           <div class="row m-t-20">
-              <!-- Form -->
+           
               <form class="col-12" action="index.html">
-                  <!-- email -->
+              
                   <div class="input-group mb-3">
                       <div class="input-group-prepend">
                           <span class="input-group-text bg-danger text-white" id="basic-addon1"><i class="ti-email"></i></span>
                       </div>
                       <input type="text" class="form-control form-control-lg" placeholder="Email Address" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
-                  <!-- pwd -->
+              
                   <div class="row m-t-20 p-t-20 border-top border-secondary">
                       <div class="col-12">
                           <a class="btn btn-success" href="#" id="to-login" name="action">Back To Login</a>
@@ -60,23 +60,38 @@
       </div>
   </div>
 </div>
+ -->
 
 
 
-<script>
 
-  $('[data-toggle="tooltip"]').tooltip();
-  $(".preloader").fadeOut();
-  // ============================================================== 
-  // Login and Recover Password 
-  // ============================================================== 
-  $('#to-recover').on("click", function() {
-      $("#loginform").slideUp();
-      $("#recoverform").fadeIn();
-  });
-  $('#to-login').click(function(){
-      
-      $("#recoverform").hide();
-      $("#loginform").fadeIn();
-  });
-  </script>
+
+<div class="ctn">
+    <div class="contact-wrapper">
+      <div class="left_side">
+        <img  src="../../../assets/asset/images/logo-icon.png">
+      </div>
+      <div class="right_side">
+        <h2>Authentification</h2>
+        <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)" novalidate autocomplete="nope">
+          <div class="form-row">
+            <input type="text" name="login" ngModel  autocomplete="off" required >
+            <span>Nom d'utilisateur</span>
+          </div>
+          <div class="form-row">
+            <input type="password" name="password" ngModel required >
+            <span>Mot de passe</span>
+          </div>
+          <div class="form-row"></div>
+          <div class="form-row"> 
+            <button type="submit" style="font-size: 16px;">Connexion</button>
+          </div>
+        </form>
+        <div class="socials-wrapper">
+          <h2><a class="btn" (click)="forgotPsd()" >Mot de passe oublié ?</a> </h2>
+       
+        </div>
+      </div>
+    </div>
+  </div>
+  

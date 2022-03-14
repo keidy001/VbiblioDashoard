@@ -1,9 +1,12 @@
+import { ShowLivreComponent } from './../show-livre/show-livre.component';
 import { UpdateLivreComponent } from './../update-livre/update-livre.component';
 import { Router } from '@angular/router';
 import { LivreserviceService } from './../../service/livreservice.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import Swal from 'sweetalert2';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-list-livre',
@@ -11,12 +14,18 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
   styleUrls: ['./list-livre.component.css'],
 })
 export class ListLivreComponent implements OnInit {
+  @ViewChild('paginator') paginator! :MatPaginator;
+  loading: boolean = false;
+  displayedColumns: string[] = [ 'titre','auteur','prix','format','category.category'];
+  dataSource : MatTableDataSource<any>;
   allLivres: any;
   image: any;
+  totalRecords: number;
   constructor(
     public livreService: LivreserviceService,
     public router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+     
   ) {}
 
   ngOnInit(): void {
@@ -25,8 +34,12 @@ export class ListLivreComponent implements OnInit {
   }
 
   getAllLivre() {
-    this.livreService.getAllLivre().subscribe((data) => {
+    this.livreService.getAllLivre().subscribe((data: any) => {
       this.allLivres = data;
+      this.totalRecords = this.allLivres.length
+      //this.allLivres.paginator =this.paginator;
+      this.dataSource = new MatTableDataSource(data);
+       this.dataSource.paginator =this.paginator;
     });
   }
 
@@ -48,11 +61,23 @@ export class ListLivreComponent implements OnInit {
       }
     });
   }
+ async detailLivre(id:number){
 
-  update(){
+  const dialogConfig = new MatDialogConfig();
+  dialogConfig.disableClose = true;
+  this.dialog.open(ShowLivreComponent,{
+    data:id,
+    width:'50%',
+    maxWidth:'50%',
+
   
- 
-   
+  })
+
+  }
+  update(){
+
+
+
 
   }
 }

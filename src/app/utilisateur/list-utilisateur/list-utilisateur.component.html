@@ -1,0 +1,61 @@
+
+
+<a class="btn btn-info mb-2 mat-elevation-z12" href="/accueil" >Retour</a>
+<div class="card">
+  <div class="card-body">
+    
+
+    <div class="card">
+ 
+                <p-table [value]="utilisateurs"[scrollable]="true" scrollHeight="400px" class="table table-striped table-bordered mat-elevation-z8" 
+                [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[5,10,25,50]" [loading]="" styleClass="p-datatable-gridlines"
+                [paginator]="true" currentPageReportTemplate="Afficher {first} sur {last} / {totalRecords} Enregistrements"
+                [globalFilterFields]="['nom','prenom','telephone','role']"
+               >
+                    <ng-template pTemplate="header">
+                        
+                        <tr>
+                          <th >
+                              <p-columnFilter type="text"  field="nom"></p-columnFilter>
+                          </th>
+                          <th >
+                              <p-columnFilter type="text" field="prenom"></p-columnFilter>
+                          </th>
+                          <th >
+                              <p-columnFilter type="text" field="email"></p-columnFilter>
+                          </th>
+                          <th >
+                              <p-columnFilter type="text" field="telephone"></p-columnFilter>
+                          </th>
+                      </tr>
+                      <tr style="background-color: #6a9bff !important;color: white;">
+                        <!-- <th style="min-width:100px">Image</th> -->
+                        <th  pSortableColumn="titre" style="min-width:200px; background-color: #6a9bff;color: white;">Nom</th>
+                        <th  pSortableColumn="titre" style="min-width:200px; background-color: #6a9bff;color: white;">Prénom</th>
+                        <th pSortableColumn="auteur" style="min-width:200px; background-color: #6a9bff;color: white;">email</th>
+                        <th pSortableColumn="format" style="min-width:200px; background-color: #6a9bff;color: white;">Téléphone</th>
+                        <!-- <th pSortableColumn="typeActeur" style="min-width:200px; background-color: #6a9bff;color: white;">Prix</th> -->
+                        <th  style="min-width:200px; background-color: #6a9bff;color: white;">Action</th>
+
+                    </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-utilisateur >
+                        <tr style="">
+                            <!-- <td style="min-width:100px"><img src="{{image}}{{livre.idLivre}}" style="height: 60px;" ></td> -->
+                            <td style="min-width:200px">{{utilisateur?.nom}}</td>
+                            <td style="min-width:200px">{{utilisateur?.prenom}}</td>
+                            <td style="min-width:200px">{{utilisateur?.email}}</td>
+                            <td style="min-width:200px">{{utilisateur?.telephone}}</td>
+                            <!-- <td style="min-width:200px">{{livre?.prix}}</td> -->
+                            <td>
+                              <a class="btn" (click)="show(utilisateur?.idUtilisateur)"  style="margin-left: 4%;"><i class="mdi mdi-eye" style="zoom:1.5; color: #000;" ></i></a>
+                              <a class="btn" (click)="desactive(utilisateur?.idUtilisateur)"  style="margin-left: 4%;"><i class="mdi mdi-block-helper" style="zoom:1.5; color: red;"></i></a>
+                           </td>
+                        </tr>
+                      </ng-template>
+                      
+                    </p-table>
+            </div>
+      </div>
+  </div>
+

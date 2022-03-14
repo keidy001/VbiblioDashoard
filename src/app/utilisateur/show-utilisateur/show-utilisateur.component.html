@@ -1,0 +1,20 @@
+<div class="body ">
+    <mat-card class="col-md-12 mat-elevation-z12">
+        <mat-card-title-group>
+            <mat-card-title>{{utilisateur?.nom}} {{utilisateur?.prenom}}</mat-card-title>
+           
+    
+            <img mat-card-sm-image src="../../../assets/asset/images/users/user.png" style="margin  : 20px;">
+        </mat-card-title-group>
+        <mat-card-content>
+    
+         <p> <b>Email :</b> <a href="mailto:{{utilisateur?.email}}"> {{utilisateur?.email}}</a></p>
+         <p> <b>Téléphone :</b> <a href="tel:{{utilisateur?.telephone}}"> {{utilisateur?.telephone}}</a></p>
+         <p *ngIf="utilisateur?.profile"> <b>Profile :</b> {{utilisateur?.profile}}</p>
+         <p *ngIf="!utilisateur?.profile"> <b>Profile :</b> Non définie</p>
+
+      
+    
+        </mat-card-content>
+      </mat-card>
+    </div>

@@ -1,15 +1,17 @@
-<mat-card class="col-md-12">
+<div class="body ">
+<mat-card class="col-md-12 mat-elevation-z12">
     <mat-card-title-group>
         <mat-card-title>{{admin.nom}} {{admin.prenom}}</mat-card-title>
-        <mat-card-subtitle>Small</mat-card-subtitle>
-        <img mat-card-sm-image src="../../../assets/asset/images/users/user.png">
+        <mat-card-subtitle>{{admin.role}}</mat-card-subtitle>
+
+        <img mat-card-sm-image src="../../../assets/asset/images/users/user.png" style="margin  : 20px;">
     </mat-card-title-group>
     <mat-card-content>
 
-     <p> <b>Email :</b> {{admin.email}}</p>
-     <p> <b>Email :</b> {{admin.telephone}}</p>
+     <p> <b>Email :</b> <a href="mailto:{{admin.email}}"> {{admin.email}}</a></p>
+     <p> <b>Téléphone :</b> <a href="tel:{{admin.telephone}}"> {{admin.telephone}}</a></p>
      <p> <b>Profile :</b> {{admin.role}}</p>
-    <button class="btn btn-info">Modifier</button>
-    <button class="btn btn-info" style="float: right;">Fermer</button>
+
     </mat-card-content>
   </mat-card>
+</div>

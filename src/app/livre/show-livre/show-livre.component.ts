@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { LivreserviceService } from 'src/app/service/livreservice.service';
+import { Component, Inject, Input, OnInit } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UpdateLivreComponent } from '../update-livre/update-livre.component';
 
 @Component({
@@ -8,13 +9,18 @@ import { UpdateLivreComponent } from '../update-livre/update-livre.component';
   styleUrls: ['./show-livre.component.css']
 })
 export class ShowLivreComponent implements OnInit {
-
+  detailLivre: any;
+  image:any;
   constructor(
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private service:LivreserviceService,
+    @Inject(MAT_DIALOG_DATA) public idLivre: number,
 
   ) { }
 
   ngOnInit(): void {
+    this.image = this.service.img;
+    this.showLivre();
   }
 
   update(){
@@ -23,6 +29,11 @@ export class ShowLivreComponent implements OnInit {
       width:'100%'
     });
     
+  }
+  showLivre(){
+    this.service.getLivreById(this.idLivre).subscribe((data)=>{
+      this.detailLivre = data;
+    })
   }
 
 }

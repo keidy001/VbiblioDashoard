@@ -13,7 +13,8 @@ import { Component, OnInit } from '@angular/core';
 export class AccueilComponent implements OnInit {
   nombreEbook :any;
   nombreAudiobook:any;
-  nombreDocument:any;
+  nombreMemoire:any;
+  nombreArticle:any;
   nombreLibrairy:any;
   constructor(
     public livreService :LivreserviceService,
@@ -26,22 +27,27 @@ export class AccueilComponent implements OnInit {
   ngOnInit(): void {
 
     //Methode for count total Ebook
-    this.livreService.livreByFormat('Ebook').subscribe((data)=>{
+    this.livreService.livreByFormatNotDeleted('Ebook', false).subscribe((data)=>{
       this.nombreEbook = data;
       this.nombreEbook = this.nombreEbook.length;
     })
 
     //Methode for count total Audio
-      this.livreService.livreByFormat('Audio').subscribe((data)=>{
+      this.livreService.livreByFormatNotDeleted('AudioBook',false).subscribe((data)=>{
         this.nombreAudiobook = data;
         this.nombreAudiobook = this.nombreAudiobook.length;
   })
 
-      //Methode for count total Document
-      this.livreService.livreByFormat('Document').subscribe((data)=>{
-        this.nombreDocument = data;
-        this.nombreDocument = this.nombreDocument.length;
+      //Methode for count total Article
+      this.livreService.livreByFormatNotDeleted('Article',false ).subscribe((data)=>{
+        this.nombreArticle = data;
+        this.nombreArticle = this.nombreArticle.length;
   })
+        //Methode for count total Memoire
+        this.livreService.livreByFormatNotDeleted('Memoire', false).subscribe((data)=>{
+          this.nombreMemoire = data;
+          this.nombreMemoire = this.nombreMemoire.length;
+    })
       //Methode for count total Library
       this.librairy.getAllLibrairy().subscribe((data)=>{
         this.nombreLibrairy = data;

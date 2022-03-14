@@ -1,14 +1,33 @@
 
-  <mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" (click)="update()"  aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>My App</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button>
-  </mat-toolbar>
+ <mat-card class="example-card col-md-12" >
+  
+    <div mat-card-avatar class="example-header-image"></div>
+  
+  <mat-card-content>
+  <div class="flex-container">
+    <div class="div1">
+  <img mat-card-image src="{{image}}{{detailLivre?.idLivre}}" alt="Image du livre" >
+
+
+</div>
+
+    <div class="div2">
+      <mat-card-title style="color: #6a9bff;"> {{detailLivre?.titre}}</mat-card-title>
+
+      <p> <b> Auteur:</b> {{detailLivre?.auteur}}</p>
+
+      <p *ngIf="detailLivre?.prix >0"> <b>Prix:</b> {{detailLivre?.prix | currency:" ":true:"1.0"}} fcfa</p>
+      <p *ngIf="detailLivre?.prix ==0"> <b>Gratuit</b></p>
+      <b style="color: #000;">Catégorie:</b> {{detailLivre?.category?.category}}
+
+    </div>
+    
+    
+  </div>
+  <h2 style="color: #6a9bff;">Description</h2>
+<p>
+  <!-- {{detailLivre.description}} -->
+  Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum.
+</p>
+  </mat-card-content>
+</mat-card>

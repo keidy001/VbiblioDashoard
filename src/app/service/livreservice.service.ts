@@ -7,14 +7,16 @@ import { Observable, throwError } from 'rxjs';
 })
 export class LivreserviceService {
 
- //Local url
-  url1='http://localhost:8080/api/livre';
-  img1='http://localhost:8080/api/livre/photo/';
-  contentLivre1='http://localhost:8080/api/livre/livre/';
- //Remote url
- url='https://vbiblio.herokuapp.com/api/livre';
- img='https://vbiblio.herokuapp.com/api/photo/';
- contentLivre='https://vbiblio.herokuapp.com/api/livre/livre/';
+
+  //Local url
+  url='http://localhost:8080/api/livre';
+  img='http://localhost:8080/api/livre/photo/';
+  contentLivre='http://localhost:8080/api/livre/livre/';
+
+  //Remote url On heroku
+  url1='https://virtualbiblio.herokuapp.com/api/livre';
+  img1='https://virtualbiblio.herokuapp.com/api/livre/photo/';
+  contentLivre1='https://virtualbiblio.herokuapp.com/api/livre/livre/';
 
   constructor(
     private http : HttpClient)
@@ -33,7 +35,7 @@ export class LivreserviceService {
 
       return this.http.post(this.url+"/ajouter/",forms);
 
-    } 
+    }
     getAllLivre(){
       return this.http.get(this.url +"/byStatus/0");
     }
@@ -60,5 +62,9 @@ export class LivreserviceService {
     livreByFormat(format :String){
       return this.http.get(this.url+"/livrebyformat/"+format)
     }
-  
+
+    livreByFormatNotDeleted(format:string, state: boolean){
+      return this.http.get(this.url+"/formatNotDeleleted/"+format+"/"+state)
+    }
+
 }

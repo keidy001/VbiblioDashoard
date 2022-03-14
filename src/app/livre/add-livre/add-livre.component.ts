@@ -78,7 +78,7 @@ console.log("after"+fg.value.librairy);
         data.titre=fg.value['titre'],
         data.auteur=fg.value['auteur'],
         data.description=fg.value['description'],
-        data.sommaire=fg.value['sommaire'],
+       // data.sommaire=fg.value['sommaire'],
         data.prix=fg.value['prix'],
         // data.domaine=fg.value['domaine'],
         data.category=fg.value['category'],

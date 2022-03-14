@@ -54,6 +54,8 @@ export class UpdateAdminComponent implements OnInit {
 
 
   update(fg : FormGroup){
+    console.log(fg.value);
+    
     this.adminservice.UpdateAdmin(this.idAdmin, fg.value).subscribe((data)=>{
      
       Swal.fire({

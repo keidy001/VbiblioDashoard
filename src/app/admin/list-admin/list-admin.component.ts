@@ -1,3 +1,4 @@
+import { AddAdminComponent } from './../add-admin/add-admin.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
@@ -44,11 +45,11 @@ listAdmin(){
 delete(id: number) {
   Swal.fire({
     title: 'Etes vous sure?',
-    text: 'Le fichier sera placé dans le corbeille !',
+    text: 'Le compte de cet Administrateur sera désactivé !',
     icon: 'warning',
     showCancelButton: true,
-    confirmButtonText: 'Oui, Supprimer!',
-    cancelButtonText: 'Non, Ne pas supprimer ',
+    confirmButtonText: 'Continuer',
+    cancelButtonText: 'Annuler',
   }).then((result) => {
     if (result.isConfirmed) {
       this.adminservice.deleteAdmin(id).subscribe((res) => {
@@ -70,11 +71,21 @@ update(id:number){
   dialogConfig.disableClose = true;
   this.dialog.open(UpdateAdminComponent,{
     data:id,
-    width:"50%"
-      
+    width:"50%",
     
   }
-    )
+  )
+  
+}
+addadmin(){
+  const dialogConfig = new MatDialogConfig();
+  dialogConfig.disableClose = true;
+  this.dialog.open(AddAdminComponent,{
+    
+    width:"50%",
+    
+  }
+  )
 
 }
 

@@ -109,6 +109,10 @@ update(id:number){
   }
     )
 
-}
+    
+  }
+  close(){
+    this.dialog.closeAll();
+  }
 
 }

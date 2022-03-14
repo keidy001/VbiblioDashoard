@@ -1,5 +1,5 @@
+import { ListUtilisateurComponent } from './utilisateur/list-utilisateur/list-utilisateur.component';
 import { FormatComponent } from './format/format.component';
-import { AddAdminComponent } from './admin/add-admin/add-admin.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { UpdateLivreComponent } from './livre/update-livre/update-livre.component';
 import { ShowLivreComponent } from './livre/show-livre/show-livre.component';
@@ -16,6 +16,7 @@ import { AddLivreComponent } from './livre/add-livre/add-livre.component';
 import { ListLibrairyComponent } from './librairy/list-librairy/list-librairy.component';
 import { AddLibrairyComponent } from './librairy/add-librairy/add-librairy.component';
 import { ListAdminComponent } from './admin/list-admin/list-admin.component';
+import { AddAdminComponent } from './admin/add-admin/add-admin.component';
 
 const routes: Routes = [
   {path:"accueil",component:AccueilComponent, canActivate:[AdminGuard]},
@@ -23,14 +24,16 @@ const routes: Routes = [
   //Admin Route
   {path:"listadmin",component:ListAdminComponent, canActivate:[AdminGuard]},
   {path:"addadmin",component:AddAdminComponent, canActivate:[AdminGuard]},
-  
-  
+  {path:"utilisateur",component:ListUtilisateurComponent, canActivate:[AdminGuard]},
+
+
   {path:"byformat/:format",component:FormatComponent, canActivate:[AdminGuard]},
-  
-  //Librairies 
+
+  //Librairies
   {path:"listlibrary",component:ListLibrairyComponent, canActivate:[AdminGuard]},
   {path:"addlibrairy",component:AddLibrairyComponent, canActivate:[AdminGuard]},
-  
+  {path:"showlibrairy/:id",component:ShowLibrairyComponent, canActivate:[AdminGuard]},
+
   {path:"listlivres",component:ListLivreComponent, canActivate:[AdminGuard]},
   {path:"addlivre",component:AddLivreComponent, canActivate:[AdminGuard]},
   {path: 'login',component: LoginComponent,canActivate:[LoginGuard]},

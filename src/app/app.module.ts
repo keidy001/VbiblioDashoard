@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatToolbarModule} from '@angular/material/toolbar';
-
+import { TableModule } from 'primeng/table';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {AccordionModule} from 'primeng/accordion';
@@ -31,7 +31,6 @@ import { AccueilComponent } from './accueil/accueil.component';
 import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
-import { AddAdminComponent } from './admin/add-admin/add-admin.component';
 import { UpdateAdminComponent } from './admin/update-admin/update-admin.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
@@ -41,7 +40,15 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormatComponent } from './format/format.component';
 import { ShowAdminComponent } from './admin/show-admin/show-admin.component';
 import { ListAdminComponent } from './admin/list-admin/list-admin.component';
-
+import { ForgotPasswordComponent } from './authentification/forgot-password/forgot-password.component';
+import {PaginatorModule} from 'primeng/paginator';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { AddAdminComponent } from './admin/add-admin/add-admin.component';
+import {TriStateCheckboxModule} from 'primeng/tristatecheckbox';
+import { ListUtilisateurComponent } from './utilisateur/list-utilisateur/list-utilisateur.component';
+import { ShowUtilisateurComponent } from './utilisateur/show-utilisateur/show-utilisateur.component';
+import { ScrollTopModule } from 'primeng/scrolltop';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +70,10 @@ import { ListAdminComponent } from './admin/list-admin/list-admin.component';
     FormatComponent,
     UpdateAdminComponent,
     ShowAdminComponent,
-    ListAdminComponent
+    ListAdminComponent,
+    ForgotPasswordComponent,
+    ListUtilisateurComponent,
+    ShowUtilisateurComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +100,13 @@ import { ListAdminComponent } from './admin/list-admin/list-admin.component';
     MatCardModule,
     NgxPaginationModule,
     FilterPipeModule,
+    TableModule,
+    PaginatorModule,
     Ng2SearchPipeModule,
+    MatGridListModule,
+    TriStateCheckboxModule,
+    ScrollPanelModule,
+    ScrollTopModule
   ],
   providers: [],
   bootstrap: [AppComponent],

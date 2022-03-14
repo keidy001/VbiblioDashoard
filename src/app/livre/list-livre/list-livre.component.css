@@ -6,3 +6,49 @@
                     background-color: white;
                     z-index: 100000;
 }
+
+.thStyle{
+    border-bottom: 1px solid #b1b1b1; font-size: large;
+  }
+  .paginatorStyle{
+      background-color: #6A9BFF;
+    color: white;
+  }
+  
+  
+   td.mat-cell {
+    /* row padding */
+    padding: 16px 0;
+    /* row border */
+    border-bottom: 1px solid #b1b1b1;
+    border-top: 1px solid #b1b1b1;
+   }
+   
+   table {
+    width: 100%;
+  }
+
+  :host ::ng-deep  .p-frozen-column {
+    font-weight: bold;
+  }
+  :host ::ng-deep .p-datatable-frozen-tbody {
+    font-weight: bold;
+  }
+  .paginatorStyle{
+    background-color: #6A9BFF;
+  color: white;
+  float: bottom;
+}
+.ui-paginator {
+    font-family: verdana;
+    font-weight: bold;
+    }
+    
+    .ui-paginator {
+    text-align: right !important;
+    }
+    
+    .ui-paginator span {
+    text-align: left !important;
+    }
+   

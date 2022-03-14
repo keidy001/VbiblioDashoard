@@ -7,10 +7,11 @@ import { Injectable } from '@angular/core';
 export class LibrairyService {
 
  //Local url
- url1='http://localhost:8080/api/librairy';
+ url='http://localhost:8080/api/librairy';
 
  //Remote url
- url = 'https://vbiblio.herokuapp.com/api/librairy'
+
+ url1 = 'https://virtualbiblio.herokuapp.com/api/librairy'
   constructor(
     private http : HttpClient)
      { }
