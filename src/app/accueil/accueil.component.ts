@@ -29,6 +29,8 @@ export class AccueilComponent implements OnInit {
     //Methode for count total Ebook
     this.livreService.livreByFormatNotDeleted('Ebook', false).subscribe((data)=>{
       this.nombreEbook = data;
+      console.log(data);
+      
       this.nombreEbook = this.nombreEbook.length;
     })
 
