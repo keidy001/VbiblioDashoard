@@ -26,7 +26,7 @@ export class LivreserviceService {
 
      //-------------------------------------------------------Gestion livre livre --------------
 
-    addLivre(data:any, imgfile:File,livrefile:File ):  Observable<any>{
+    addLivre(data:any, imgfile:File,livrefile:File ):Observable<any>{
 
       const forms: FormData = new FormData();
       forms.append("file", imgfile)

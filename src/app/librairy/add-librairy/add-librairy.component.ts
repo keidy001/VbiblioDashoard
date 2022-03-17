@@ -16,8 +16,8 @@ export class AddLibrairyComponent implements OnInit {
   imgfile :File;
   img :any;
   constructor(
-    public formBuilder: FormBuilder, 
-    private servicelibrairie: LibrairyService, 
+    public formBuilder: FormBuilder,
+    private servicelibrairie: LibrairyService,
     private router: Router,
     private matDialogRef:MatDialogRef<ListLibrairyComponent>,
 
@@ -26,10 +26,7 @@ export class AddLibrairyComponent implements OnInit {
   ngOnInit(): void {
     // this. listLibrairie()
     this.formulaire = this.formBuilder.group({ 
-      nom: ['', Validators.required],
-      adresse: ['', Validators.required],
-      telephone: ['', Validators.required],
-      email: ['', Validators.required,Validators.email],
+
       // livre: ['', Validators.required],
       // admin: ['', Validators.required],
       // image: ['', Validators.required],
@@ -42,7 +39,9 @@ export class AddLibrairyComponent implements OnInit {
  this.imgfile =img;
 }
 
+
   SubmitForm(form:FormGroup){
+
    
    this.servicelibrairie.addLibrairy(form.value, this.imgfile).subscribe((data)=>{
     console.log(data)
@@ -54,7 +53,7 @@ export class AddLibrairyComponent implements OnInit {
   console.log(data)
 this.servicelibrairie.updateLibrairy(data.idLibrairy, data).subscribe((res)=>{
   
-  console.log(res)
+
 
   this.onCloseDialog();
     Swal.fire({
