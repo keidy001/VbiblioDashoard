@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 export class ListLibrairyComponent implements OnInit {
   [x: string]: any;
   allLibrairie: any;
+  img:any;
   constructor(
      private librairieservice: LibrairyService,
     private dialog:MatDialog
@@ -20,7 +21,9 @@ export class ListLibrairyComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getlibrarie()
+    this.getlibrarie();
+    this.img = this.librairieservice.img;
+
   }
   getlibrarie() {
     this.librairieservice.getAllLibrairy().subscribe((data) => {

@@ -4,7 +4,31 @@
         <mat-card-title>Ajouter des Librairies</mat-card-title>
         <mat-card-actions>
             <form class="matform" [formGroup]= "formulaire" (ngSubmit)="SubmitForm(formulaire)" novalidate>
-            <div>
+                <div class="col-lg-5">
+                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                        <div class="fileupload-new thumbnail"
+                            style="border: solid 1px; width: 200px; height: 150px; ">
+                            <img src="../../../assets/500.png" alt="" />
+                        </div>
+                        <div class="fileupload-preview fileupload-exists thumbnail"
+                            style="max-width: 200px; max-height: 150px; line-height: 20px; "></div>
+                        <div>
+                            <span class="btn btn-secondary btn-file">
+                                <span class="fileupload-new"><i class="fa fa-paperclip"></i> Choisir une
+                                    image</span>
+                                <span class="fileupload-exists"><i class="fa fa-undo"></i> Changer</span>
+                                <input type="file" value="" name="photo" (change)="imgSelect($event)" required
+                                    class="default" />
+                            </span>
+                            <!-- <a href="javascript:" type="reset" class="btn btn-theme04 fileupload-exists"
+                                data-dismiss="fileupload"
+                                style="margin-left: 1%;"
+                                ><i class="fa fa-trash-o"></i> Supprimer</a> -->
+                        </div>
+                    </div>
+                </div>
+           
+                <div>
                 <mat-form-field appearance="standard" class="mx-3">
                     <mat-label>Nom</mat-label>
                     <input matInput type="text" formControlName="nom" required>
@@ -41,7 +65,7 @@
 
                 <div class="mx-3">
                     <button [disabled]="formulaire.invalid" class="btn btn-info" type="submit" color="primary">Valider</button>
-                    <button class="btn btn-info float-right" type="reset" color="primary">Annuler</button>
+                    <button class="btn btn-info float-right" (click)="onCloseDialog()"color="primary">Annuler</button>
                 </div>
             </div>
             </form>

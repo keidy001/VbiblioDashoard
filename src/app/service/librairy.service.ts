@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -8,6 +9,8 @@ export class LibrairyService {
 
  //Local url
  url='http://localhost:8080/api/librairy';
+ img='http://localhost:8080/api/librairy/photo/';
+ 
 
  //Remote url
 
@@ -19,9 +22,12 @@ export class LibrairyService {
 
   //-------------------------------------------------------Gestion librairy --------------
 
-addLibrairy(data:any){
+addLibrairy(data:any,img:File):Observable<any>{
 
-    return this.http.post(this.url+"/ajouter/", data, {responseType:"text"});
+  const forms: FormData = new FormData();
+  forms.append("file", img)
+  forms.append("data", data)
+    return this.http.post(this.url+"/ajouter", forms);
   }
   getAllLibrairy(){
     return this.http.get(this.url +"/lister");
@@ -34,7 +40,7 @@ addLibrairy(data:any){
 }
 
   showLibrairy(id:any){
-    return this.http.get(this.url +"/afficher"+ id);
+    return this.http.get(this.url +"/afficher/"+id);
   }
   updateLibrairy(id:number, data: any){
     return this.http.put(this.url+"/modifier/"+id, data);

@@ -15,7 +15,7 @@
       <!-- Topbar header - style you can find in pages.scss -->
       <!-- ============================================================== -->
       
-      <header class="topbar" data-navbarbg="skin4" >
+      <header class="topbar" data-navbarbg="skin5" >
           <nav class="navbar top-navbar navbar-expand-md navbar-dark" >
               <div class="navbar-header" data-logobg="skin4">
                   <!-- This is for the sidebar toggle which is visible on mobile only -->
@@ -110,7 +110,7 @@
                       <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-light sidebar-link" href="category" aria-expanded="false"><i class="fas fa-tags"></i><span class="hide-menu">Gestion des categories</span></a></li>
                       <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-light sidebar-link" href="listlibrary" aria-expanded="false"><i class="mdi mdi-library"></i><span class="hide-menu">Gestion des Librairies</span></a></li>
                       <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-light sidebar-link" href="utilisateur" aria-expanded="false"><i class="fas fa-users"></i><span class="hide-menu">Gestion des Utilisateurs</span></a></li>
-                      <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-light sidebar-link" href="listadmin" aria-expanded="false"><i class="fas fa-user-md"></i><span class="hide-menu">Gestion des Admins</span></a></li>
+                      <li *ngIf="loginInfo.role==0" class="sidebar-item"> <a class="sidebar-link waves-effect waves-light sidebar-link" href="listadmin" aria-expanded="false"><i class="fas fa-user-md"></i><span class="hide-menu">Gestion des Admins</span></a></li>
                       <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-light sidebar-link" href="corbeille" aria-expanded="false"><i class="fas fa-trash-alt"></i><span class="hide-menu">Corbeille</span></a></li>                   
                   </ul>
               </nav>

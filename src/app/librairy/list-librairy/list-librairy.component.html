@@ -13,7 +13,7 @@
           
           <mat-card class="mat-card card-hover col-md-2" *ngFor="let librairie of allLibrairie" style="margin: 10px;">
            <div  routerLink="/showlibrairy/{{librairie.idLibrairy}}">
-              <img mat-card-image src="../../../assets/asset/images/libbbb.jpg" alt="Photo of a Shiba Inu">
+              <img mat-card-image src="{{img}}{{librairie.idLibrairy}}" alt="Photo de la librairie">
               <mat-card-content>
                 
                  <h2>{{librairie.nom}}</h2>
