@@ -9,7 +9,7 @@
           align-items: center;
   background: #6A9BFF;   
   background: -webkit-linear-gradient(to right, #6A9BFF, #7b5d7b);
-  background: linear-gradient(to right, #516395, #6a4bff); 
+  background: linear-gradient(to right, #516395, #6a9bff); 
   display: -webkit-box;
   display: flex;
   font-family: "Rajdhani", sans-serif;
@@ -29,7 +29,7 @@
 }
 .left_side,
 .right_side{
-  width:50%;
+  width:60%;
   padding:0 3em;
 }
 .right_side > h2{

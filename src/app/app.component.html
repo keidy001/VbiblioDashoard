@@ -34,7 +34,7 @@
                        <!-- Logo text -->
                       <span class="logo-text">
                            <!-- dark Logo text -->
-                           <img src="assets/asset/images/logo-text.png" alt="homepage" class="light-logo" style="width: 140px;" />
+                           <img src="../assets/asset/images/Group 150.png" alt="homepage" class="light-logo" style="width: 140px;" />
 
                       </span>
                       <!-- Logo icon -->
@@ -110,7 +110,7 @@
                       <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-light sidebar-link" href="category" aria-expanded="false"><i class="fas fa-tags"></i><span class="hide-menu">Gestion des categories</span></a></li>
                       <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-light sidebar-link" href="listlibrary" aria-expanded="false"><i class="mdi mdi-library"></i><span class="hide-menu">Gestion des Librairies</span></a></li>
                       <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-light sidebar-link" href="utilisateur" aria-expanded="false"><i class="fas fa-users"></i><span class="hide-menu">Gestion des Utilisateurs</span></a></li>
-                      <li *ngIf="loginInfo.role==0" class="sidebar-item"> <a class="sidebar-link waves-effect waves-light sidebar-link" href="listadmin" aria-expanded="false"><i class="fas fa-user-md"></i><span class="hide-menu">Gestion des Admins</span></a></li>
+                      <li *ngIf="loginInfo.role=='SuperAdmin'" class="sidebar-item"> <a class="sidebar-link waves-effect waves-light sidebar-link" href="listadmin" aria-expanded="false"><i class="fas fa-user-md"></i><span class="hide-menu">Gestion des Admins</span></a></li>
                       <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-light sidebar-link" href="corbeille" aria-expanded="false"><i class="fas fa-trash-alt"></i><span class="hide-menu">Corbeille</span></a></li>                   
                   </ul>
               </nav>
