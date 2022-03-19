@@ -20,9 +20,12 @@
                                         <span class="fileupload-new"><i class="fa fa-paperclip"></i> Choisir une
                                             image</span>
                                         <span class="fileupload-exists"><i class="fa fa-undo"></i> Changer</span>
-                                        <input type="file" value="" name="photo" (change)="imgSelect($event)" required
+                                        <input type="file" value="" formControlName="photo" name="photo" (change)="imgSelect($event)" required
                                             class="default" />
                                     </span>
+                                    <div *ngIf="formulaire.controls['photo'].invalid && (formulaire.controls['photo'].dirty || formulaire.controls['photo'].touched)" class="alert">
+                                      <span style="color: red;">La photo est obligatoire</span>
+                                     </div>
                                     <!-- <a href="javascript:" type="reset" class="btn btn-theme04 fileupload-exists"
                                         data-dismiss="fileupload"
                                         style="margin-left: 1%;"
@@ -39,22 +42,26 @@
                                     <span class="fileupload-new"><i class="fa fa-paperclip"></i> Choisir un
                                         fichier</span>
                                     <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
-                                    <input type="file" class="default" value="" name="livre"
+                                    <input type="file" class="default" value="" formControlName="livre" name="livre"
                                         (change)="livreSelect($event)" required />
                                 </span>
                                 <span class="fileupload-preview" style="margin-left:5px;"></span>
                                 <a href="" class="close fileupload-exists" data-dismiss="fileupload"
                                       style="float: none; margin-left:5px;" ></a>
                             </div>
+                            <div *ngIf="formulaire.controls['livre'].invalid && (formulaire.controls['livre'].dirty || formulaire.controls['livre'].touched)" class="alert">
+                              <span style="color: red;">Vous devez choisir un livre</span>
+                             </div>
                         </div>
 
                     </div>
                     <div class="form-group row">
                         <mat-form-field appearance="fill" class="mx-4">
-                            <mat-label for="titre">Titre du livre</mat-label>
+                            <mat-label for="titre">Titre</mat-label>
                             <input type="text" matInput id="titre" placeholder="Ajouter un titre"
                                 formControlName="titre" required>
                         </mat-form-field>
+
                         <mat-form-field appearance="fill" class="mx-4">
                             <mat-label for="titre">Auteur</mat-label>
                             <input matInput type="text" id="auteur" placeholder="Nom de l'auteur"
@@ -63,11 +70,20 @@
                         <mat-form-field appearance="fill" class="mx-4">
                             <mat-label for="prix">Prix</mat-label>
                             <input type="number" matInput id="prix" placeholder="Prix du livre" formControlName="prix"
-                                required>
+                                >
                         </mat-form-field>
 
 
                     </div>
+                    <div *ngIf="formulaire.controls['titre'].invalid && (formulaire.controls['titre'].dirty || formulaire.controls['titre'].touched)" class="alert">
+                      <span style="color: red;">Vous devez choisir un titre</span>
+                     </div>
+                     <div *ngIf="formulaire.controls['auteur'].invalid && (formulaire.controls['auteur'].dirty || formulaire.controls['auteur'].touched)" class="alert">
+                      <span style="color: red;">Vous devez choisir un auteur</span>
+                     </div>
+                     <div *ngIf="formulaire.controls['titre'].invalid && (formulaire.controls['titre'].dirty || formulaire.controls['titre'].touched)" class="alert">
+                      <span style="color: red;">Vous devez choisir un titre</span>
+                     </div>
                     <div class="form-group row">
 
 
@@ -115,7 +131,7 @@
 
                 <div class="border-top">
                     <div class="card-body">
-                        <button type="submit" class="btn btn-info mat-elevation-z12" [disabled]="">Enregistrer</button>
+                        <button type="submit" [disabled]="formulaire.invalid" class="btn btn-info mat-elevation-z12" [disabled]="">Enregistrer</button>
                     </div>
                 </div>
             </form>

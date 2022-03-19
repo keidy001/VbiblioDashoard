@@ -10,7 +10,7 @@ export class LibrairyService {
  //Local url
  url='http://localhost:8080/api/librairy';
  img='http://localhost:8080/api/librairy/photo/';
- 
+
 
  //Remote url
 

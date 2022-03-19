@@ -39,12 +39,14 @@ export class AddLivreComponent implements OnInit {
       // livre: ['', Validators.required],
       titre: ['', Validators.required],
       auteur: ['', Validators.required],
-      prix: ['', Validators.required],
+     // prix: ['', Validators.required],
       category: ['', Validators.required],
       librairy: ['', [Validators.required]],
       format: ['', Validators.required],
-      sommaire: ['', [Validators.required]],
+      //sommaire: ['', [Validators.required]],
       description: ['', [Validators.required]],
+      photo:['',Validators.required],
+      livre:['',Validators.required]
 
   },);
   }
@@ -63,7 +65,7 @@ livreSelect(event){
 
   submitForm(fg : FormGroup){
     console.log("befor"+fg.value.librairy);
-    
+
     var cat: { [idCategory: string]: any} = {};
     cat['idCategory'] = fg.value.category;
     fg.value.category = cat;

@@ -1,6 +1,6 @@
 
 <h1><a class="btn   " href="/accueil" > <i class="mdi mdi-arrow-left-box " style="zoom:3; color: #6a9bff;" ></i> </a>Liste des librairies
-<a class=" mx-2" style=" float: right;" (click)="add()" > <i class= "mdi mdi-plus-circle " style="zoom:1.0; color: #6a9bff;" ></i> Ajouter</a></h1>
+<a class=" mr-5" style=" float: right;" (click)="add()" > <i class= "mdi mdi-plus-circle " style="zoom:1.0; color: #6a9bff;" ></i> Ajouter</a></h1>
 
 <p-scrollPanel [style]="{width: '100%', height: '400px'}">
 
@@ -11,14 +11,15 @@
 
       <div class="row ">
 
-          <mat-card class="mat-card card-hover col-md-2" *ngFor="let librairie of allLibrairie" style="margin: 10px;">
+          <mat-card class="mat-card card-hover col-md-3" *ngFor="let librairie of allLibrairie" style="margin: 10px;">
            <div  routerLink="/showlibrairy/{{librairie.idLibrairy}}">
-              <img mat-card-image src="{{img}}{{librairie.idLibrairy}}" alt="Photo de la librairie">
+              <img mat-card-image src="{{img}}{{librairie.idLibrairy}}" style="height: 100px; width:auto; margin: auto;" alt="Photo de la librairie">
+             <hr>
               <mat-card-content>
 
                  <h2>{{librairie.nom}}</h2>
-                 <div><i class="mdi mdi-email"></i> {{librairie.adresse}}</div>
-                 <div><i class="mdi mdi-map-marker"></i> {{librairie.telephone}}</div>
+                 <div><i class="mdi mdi-home"></i> {{librairie.adresse}}</div>
+                 <div><i class="mdi mdi-phone"></i> {{librairie.telephone}}</div>
                  <div><i class="mdi mdi-email"></i> {{librairie.email}}</div>
 
               </mat-card-content>

@@ -3,9 +3,9 @@
     <div >
         <div class="table table-striped table-bordered mat-elevation-z8">
             <table mat-table [dataSource]="dataSource">
-          
+
               <!-- Position Column -->
-              
+
               <ng-container matColumnDef="category" >
                 <th  class="thStyle" mat-header-cell *matHeaderCellDef> Categories </th>
                 <td mat-cell *matCellDef="let element"><a routerLink="/listlivres/{{element.idCategory}}"> {{element.category}}</a> </td>
@@ -14,38 +14,38 @@
                 <th class="thStyle" mat-header-cell *matHeaderCellDef> Description </th>
                 <td mat-cell *matCellDef="let element"> {{element.description}} </td>
               </ng-container>
-             
-          
+
+
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
               <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-              
+
             </table>
-        
+
             <mat-paginator #paginator class="paginatorStyle"
                 [pageSize]="5"
                 [pageSizeOptions]="[5, 10, 25, 100]"
                 aria-label="Select page">
             </mat-paginator>
-             
+
           </div>
 
     </div>
 </div>
 <div class="col-lg-4 mx-4">
     <div class="form-panel" style="padding: 3%;">
-  
+
         <form class="mat-form" [formGroup]="formulaire" (ngSubmit)="submitForm(formulaire)" novalidate>
             <mat-form-field class="inputField" appearance="fill">
               <mat-label>Catégories </mat-label>
               <input matInput placeholder="Nom de la Catégorie" formControlName="category" required>
             </mat-form-field>
-          
+
             <mat-form-field class="inputField" appearance="fill">
               <mat-label>Description de la categories</mat-label>
               <textarea matInput  placeholder="Description de la catégorie du livre" formControlName="description"></textarea>
             </mat-form-field>
-            
-            <button type="submit" class="btn btn-info btn-file" [disabled]="">Enregistrer</button>
+
+            <button type="submit" class="btn btn-info btn-file" [disabled]="formulaire.invalid">Enregistrer</button>
         </form>
 
     </div>

@@ -17,9 +17,12 @@
                                 <span class="fileupload-new"><i class="fa fa-paperclip"></i> Choisir une
                                     image</span>
                                 <span class="fileupload-exists"><i class="fa fa-undo"></i> Changer</span>
-                                <input type="file" value="" name="photo" (change)="imgSelect($event)" required
+                                <input  type="file" formControlName="photo" value="" name="photo" (change)="imgSelect($event)" required
                                     class="default" />
                             </span>
+                            <div *ngIf="formulaire.controls['photo'].invalid && (formulaire.controls['photo'].dirty || formulaire.controls['photo'].pristine )" class="alert">
+                              <span style="color: red;">Le logo est obligatoire</span>
+                             </div>
                             <!-- <a href="javascript:" type="reset" class="btn btn-theme04 fileupload-exists"
                                 data-dismiss="fileupload"
                                 style="margin-left: 1%;"
@@ -27,27 +30,38 @@
                         </div>
                     </div>
                 </div>
-           
+
                 <div>
                 <mat-form-field appearance="standard" class="mx-3">
                     <mat-label>Nom</mat-label>
-                    <input matInput type="text" formControlName="nom" required>
-                </mat-form-field>
+                    <input matInput type="text" formControlName="nom" class="form-control" required minlength="2" maxlength="100">
+                  </mat-form-field>
+                  <div *ngIf="formulaire.controls['nom'].invalid && (formulaire.controls['nom'].dirty || formulaire.controls['nom'].touched )" class="alert">
+                   <span style="color: red;"> Le nom doit avoir au minimun 2 Caractères</span>
+                  </div>
 
                 <mat-form-field appearance="standard" class="mx-3" aria-autocomplete="off">
                     <mat-label>Adresse</mat-label>
-                    <input matInput type="text" formControlName="adresse" required>
+                    <input matInput type="text" formControlName="adresse" class="form-control" required minlength="2" maxlength="100">
                 </mat-form-field>
-
+                <div *ngIf="formulaire.controls['adresse'].invalid && (formulaire.controls['adresse'].dirty || formulaire.controls['adresse'].touched )" class="alert">
+                  <span style="color: red;"> L'adresse doit au minimun avoir 2 Caractères</span>
+                 </div>
                 <mat-form-field appearance="standard" class="mx-3">
                     <mat-label>Téléphone</mat-label>
-                    <input matInput type="number" formControlName="telephone" required>
+                    <input matInput type="tel" formControlName="telephone" class="form-control" required minlength="8" maxlength="12" pattern="[0-9]+">
                 </mat-form-field>
-
+                <div *ngIf="formulaire.controls['telephone'].invalid && (formulaire.controls['telephone'].dirty || formulaire.controls['telephone'].touched )" class="alert">
+                  <span style="color: red;">Le numéro de téléphone doit être un numéro  valide</span>
+                 </div>
                 <mat-form-field appearance="standard" class="mx-3">
                     <mat-label>Email</mat-label>
-                    <input matInput type="email" formControlName="email" required>
+                    <input matInput type="email" formControlName="email" class="form-control" required minlength="3" inputmode="email">
                 </mat-form-field>
+                <div *ngIf="formulaire.controls['email'].invalid && (formulaire.controls['email'].dirty || formulaire.controls['email'].touched )" class="alert">
+                  <span style="color: red;">L'email doit être valide</span>
+                 </div>
+
                 <!-- <mat-form-field appearance="standard" class="mx-3">
                     <mat-label>Admin</mat-label>
                     <input matInput type="text" formControlName="admin" required>
@@ -66,7 +80,8 @@
                 <div class="mx-3">
                     <button [disabled]="formulaire.invalid" class="btn btn-info" type="submit" color="primary">Valider</button>
                     <button class="btn btn-info float-right" (click)="onCloseDialog()"color="primary">Annuler</button>
-                </div>
+                      <span [hidden]="formulaire.valid"> Tous les champs doivent etre correctement remplit</span>
+                  </div>
             </div>
             </form>
 

@@ -66,5 +66,8 @@ export class LivreserviceService {
     livreByFormatNotDeleted(format:string, state: boolean){
       return this.http.get(this.url+"/formatNotDeleleted/"+format+"/"+state)
     }
+    livreByLibraryNotDeleted(library:any, state:boolean){
+    return this.http.get(this.url+"/livreByLibrairy/"+library+"/"+state)
+    }
 
 }

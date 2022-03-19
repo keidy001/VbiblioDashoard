@@ -15,6 +15,7 @@ export class AddLibrairyComponent implements OnInit {
   librairie : any;
   imgfile :File;
   img :any;
+  submitted = false;
   constructor(
     public formBuilder: FormBuilder,
     private servicelibrairie: LibrairyService,
@@ -25,15 +26,16 @@ export class AddLibrairyComponent implements OnInit {
 
   ngOnInit(): void {
     // this. listLibrairie()
-    this.formulaire = this.formBuilder.group({ 
-
-      // livre: ['', Validators.required],
-      // admin: ['', Validators.required],
-      // image: ['', Validators.required],
-
+    this.formulaire = this.formBuilder.group({
+      photo: ['', Validators.required],
+       nom: ['', Validators.required],
+       adresse: ['', Validators.required],
+       telephone: ['', [ Validators.required, Validators.minLength(8) ]],
+       email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]],
     },);
   }
-    
+
+  get f() { return this.formulaire.controls; }
  imgSelect(event){
   const img = event.target.files[0];
  this.imgfile =img;
@@ -42,17 +44,18 @@ export class AddLibrairyComponent implements OnInit {
 
   SubmitForm(form:FormGroup){
 
-   
+    if (this.formulaire.invalid) {
+      return ;
+  }
+  else{
    this.servicelibrairie.addLibrairy(form.value, this.imgfile).subscribe((data)=>{
-    console.log(data)
-
     data.nom=form.value['nom'],
     data.adresse=form.value['adresse'],
     data.telephone=form.value['telephone'],
     data.email=form.value['email'],
   console.log(data)
 this.servicelibrairie.updateLibrairy(data.idLibrairy, data).subscribe((res)=>{
-  
+
 
 
   this.onCloseDialog();
@@ -66,7 +69,7 @@ this.servicelibrairie.updateLibrairy(data.idLibrairy, data).subscribe((res)=>{
     location.replace("/listlibrary");
   })
 })
-  }
+  }}
 onCloseDialog(){
   this.matDialogRef.close();
 }

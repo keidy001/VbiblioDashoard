@@ -32,7 +32,7 @@ const routes: Routes = [
   //Librairies
   {path:"listlibrary",component:ListLibrairyComponent, canActivate:[AdminGuard]},
   {path:"addlibrairy",component:AddLibrairyComponent, canActivate:[AdminGuard]},
-  {path:"showlibrairy/:id",component:ShowLibrairyComponent, canActivate:[AdminGuard]},
+  {path:"showlibrairy/:idLibrairy",component:ShowLibrairyComponent, canActivate:[AdminGuard]},
 
   {path:"listlivres",component:ListLivreComponent, canActivate:[AdminGuard]},
   {path:"addlivre",component:AddLivreComponent, canActivate:[AdminGuard]},
