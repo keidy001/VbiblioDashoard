@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { MatTableDataSource } from '@angular/material/table';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -16,9 +17,9 @@ export class AddCategoryComponent implements OnInit {
 
 
 
-  
+
 @ViewChild('paginator') paginator! :MatPaginator;
-  
+
   displayedColumns: string[] = ['category', 'description'];
   dataSource : MatTableDataSource<any>;
   formulaire: FormGroup;
@@ -35,13 +36,13 @@ export class AddCategoryComponent implements OnInit {
     public toast: ToastrService,
     public formBuilder: FormBuilder
   ) { }
-    
+
   ngOnInit(): void {
     this.adminData =JSON.parse(localStorage['loginInfo']);
 
-  
+
     this.getCategory();
-    
+
     this.formulaire = this.formBuilder.group({
       category: ['', Validators.required],
       description: [''],
@@ -51,27 +52,35 @@ export class AddCategoryComponent implements OnInit {
   submitForm(fg : FormGroup){
 
     // var obj: { [idAdmin: string]: any} = {};
-     
-    // obj['idAdmin'] = this.adminData.idAdmin; 
+
+    // obj['idAdmin'] = this.adminData.idAdmin;
     // fg.value.admin = obj;
-    
+
     console.log(fg.value)
     console.log(this.adminData)
     this.categoryService.addCategory( fg.value).subscribe((data)=>{
-     
-        this.toast.success("Ajout effectuer avec succès ");
-        this.getCategory();
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Ajout effectuer avec succès !',
+        showConfirmButton: false,
+        timer: 3000
+      })
+      location.reload();
     })
-    
-    
+    //     this.toast.success("Ajout effectuer avec succès ");
+    //     this.getCategory();
+    // })
+
+
   }
-  
+
   getCategory(){
     this.categoryService.getAllCategory().subscribe((data:any )=>{
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator =this.paginator;
     });
-   
+
   }
 
   delete(id:number){

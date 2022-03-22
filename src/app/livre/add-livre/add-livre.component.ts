@@ -39,7 +39,7 @@ export class AddLivreComponent implements OnInit {
       // livre: ['', Validators.required],
       titre: ['', Validators.required],
       auteur: ['', Validators.required],
-     // prix: ['', Validators.required],
+      prix: ['',],
       category: ['', Validators.required],
       librairy: ['', [Validators.required]],
       format: ['', Validators.required],
