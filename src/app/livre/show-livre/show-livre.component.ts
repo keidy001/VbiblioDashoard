@@ -24,16 +24,20 @@ export class ShowLivreComponent implements OnInit {
   }
 
   update(){
-    
+
     this.dialog.open(UpdateLivreComponent,{
       width:'100%'
     });
-    
+
   }
   showLivre(){
     this.service.getLivreById(this.idLivre).subscribe((data)=>{
       this.detailLivre = data;
     })
+  }
+
+  fermer(){
+    this.dialog.closeAll();
   }
 
 }

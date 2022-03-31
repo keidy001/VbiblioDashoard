@@ -20,13 +20,16 @@ export class AddLivreComponent implements OnInit {
   submitted = false;
   alllibrairy:any;
   constructor(
-    public livreService: LivreserviceService,
-    public categoryService : CategoryService,
-    public librairyService : LibrairyService,
-    public  route: ActivatedRoute,
-    public router : Router,
-    public toast: ToastrService,
-    public formBuilder: FormBuilder) { }
+
+            public         livreService       :      LivreserviceService,
+            public         categoryService    :      CategoryService,
+            public         librairyService    :      LibrairyService,
+            public         route              :      ActivatedRoute,
+            public         router             :      Router,
+            public         toast              :      ToastrService,
+            public         formBuilder        :      FormBuilder,
+
+            ) { }
 
   ngOnInit(): void {
 

@@ -3,18 +3,21 @@
 
 <div class="row">
     <div class="col-md-12">
-        <div class="card">
-            <form class="form-horizontal" [formGroup]="formulaire" (ngSubmit)="submitForm(formulaire)" novalidate>
+        <a class="btn btn-info mx-4 mb-2 mat-elevation-z12" href="/listlivres">Retour</a>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mat-elevation-z8">
+            <form class="matform" [formGroup]="formulaire" (ngSubmit)="submitForm(formulaire)" style="margin: auto;" novalidate>
 
-                <div class="card-body">
-                    <div class="form-group row">
-                        <label class="col-sm-2 text-left control-label col-form-label">Image du livre</label>
-                        <div class="col-md-3">
+                    <div class="form-group row col-md-12 mt-5 ">
+
+
+                        <div class="col-lg-5">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
                                 <div class="fileupload-new thumbnail"
                                     style="border: solid 1px; width: 200px; height: 150px; ">
-                                    <img src="{{image}}{{livre.idLivre}}" alt=""  >
-                                    </div>
+                                    <img src="{{image}}{{livre?.idLivre}}" alt="" />
+                                </div>
                                 <div class="fileupload-preview fileupload-exists thumbnail"
                                     style="max-width: 200px; max-height: 150px; line-height: 20px; "></div>
                                 <div>
@@ -22,9 +25,12 @@
                                         <span class="fileupload-new"><i class="fa fa-paperclip"></i> Choisir une
                                             image</span>
                                         <span class="fileupload-exists"><i class="fa fa-undo"></i> Changer</span>
-                                        <input type="file" value="" name="photo" (change)="imgSelect($event)" required
+                                        <input type="file" ngModel="{{image}}{{livre?.idLivre}}" formControlName="photo" name="photo" (change)="imgSelect($event)" required
                                             class="default" />
                                     </span>
+                                    <div *ngIf="formulaire.controls['photo'].invalid && (formulaire.controls['photo'].dirty || formulaire.controls['photo'].touched)" class="alert">
+                                      <span style="color: red;">La photo est obligatoire</span>
+                                     </div>
                                     <!-- <a href="javascript:" type="reset" class="btn btn-theme04 fileupload-exists"
                                         data-dismiss="fileupload"
                                         style="margin-left: 1%;"
@@ -32,92 +38,105 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
 
-                        <label class="col-sm-2 text-left control-label col-form-label">Fichier du
-                            livre</label>
-                        <div class="controls col-md-5">
+
+                       <div class="controls col-md-4" style="margin-top:0px ;">
+
                             <div class="fileupload fileupload-new" data-provides="fileupload">
                                 <span class="btn btn-secondary btn-file">
                                     <span class="fileupload-new"><i class="fa fa-paperclip"></i> Choisir un
                                         fichier</span>
                                     <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
-                                    <input type="file" class="default" ngModel="{{contentLivre}}{{livre.idLivre}}" value="{{contentLivre}}{{livre.idLivre}}" name="livre"
+                                    <input type="file" class="default" formControlName="livre" name="livre" ngModel="{{contentLivre}}{{livre?.idLivre}}"
                                         (change)="livreSelect($event)" required />
                                 </span>
-                                <span class="fileupload-preview" style="margin-left:5px;">{{livre.livre}}</span>
+                                <span class="fileupload-preview" style="margin-left:5px;">{{livre?.livre}}</span>
                                 <a href="" class="close fileupload-exists" data-dismiss="fileupload"
-                                    style="float: none; margin-left:5px;"></a>
+                                      style="float: none; margin-left:5px;" ></a>
                             </div>
+                            <div *ngIf="formulaire.controls['livre'].invalid && (formulaire.controls['livre'].dirty || formulaire.controls['livre'].touched)" class="alert">
+                              <span style="color: red;">Vous devez choisir un livre</span>
+                             </div>
                         </div>
 
                     </div>
                     <div class="form-group row">
-                        <label for="titre" class="col-sm-2 text-left control-label col-form-label">Titre du
-                            livre</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" id="titre" 
+                        <mat-form-field appearance="fill" class="mx-4">
+                            <mat-label for="titre">Titre</mat-label>
+                            <input type="text" matInput id="titre" placeholder="Ajouter un titre"
                                 formControlName="titre" ngModel="{{livre.titre}}" required>
-                        </div>
+                        </mat-form-field>
 
-                        <label for="auteur" class="col-sm-2 text-left control-label col-form-label">Auteur</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" id="auteur"
-                                formControlName="auteur" ngModel="{{livre.auteur}}" required>
-                        </div>
+                        <mat-form-field appearance="fill" class="mx-4">
+                            <mat-label for="titre">Auteur</mat-label>
+                            <input matInput type="text" id="auteur" placeholder="Nom de l'auteur"
+                             ngModel="{{livre.auteur}}"
+                                formControlName="auteur" required>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill" class="mx-4">
+                            <mat-label for="prix">Prix</mat-label>
+                            <input type="number" matInput id="prix" placeholder="Prix du livre" formControlName="prix" ngModel="{{livre?.prix}}"
+                                >
+                        </mat-form-field>
+
+
                     </div>
+                    <div *ngIf="formulaire.controls['titre'].invalid && (formulaire.controls['titre'].dirty || formulaire.controls['titre'].touched)" class="alert">
+                      <span style="color: red;">Vous devez choisir un titre</span>
+                     </div>
+                     <div *ngIf="formulaire.controls['auteur'].invalid && (formulaire.controls['auteur'].dirty || formulaire.controls['auteur'].touched)" class="alert">
+                      <span style="color: red;">Vous devez choisir un auteur</span>
+                     </div>
                     <div class="form-group row">
-                        <label for="prix" class="col-sm-2 text-left control-label col-form-label">Prix</label>
-                        <div class="col-sm-4">
-                            <input type="number" class="form-control" id="prix" 
-                                formControlName="prix" ngModel="{{livre.prix}}" required>
-                        </div>
 
-                        <label for="domaine" class="col-sm-2 text-left control-label col-form-label">Domaine</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" id="domaine" 
-                                formControlName="domaine" ngModel="{{livre.domaine}}" required>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 text-left control-label col-form-label">Catégorie</label>
-                        <div class="col-md-4">
-                            <select class="select2 form-control custom-select"  style="width: 100%; height:36px;" formControlName="category" ngModel="{{livre.category.category}}"  required>
-                                <option value="{{livre.category.category}}" selected> {{livre.category.category}} </option>
-                                <option *ngFor="let category of allCategory" value="{{category.idCategory}}">{{category.category}}</option>
-                            </select>
-                        </div>
+                        <mat-form-field appearance="fill" class="mx-4">
+                            <mat-label>Catégorie</mat-label>
+                            <mat-select style="width: 100%; height:36px;" formControlName="category"  ngModel="{{livre?.category?.idCategory}}" required>
+                                <mat-option *ngFor="let category of allCategory" value="{{category?.idCategory}}">
+                                    {{category?.category}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field appearance="fill" class="mx-4">
+                                <mat-label>Librairie</mat-label>
+                                <mat-select style="width: 100%; height:36px;" formControlName="librairy" ngModel="{{livre?.librairy?.idLibrairy}}" required>
+                                    <mat-option *ngFor="let librairy of allLibrairy" value="{{librairy?.idLibrairy}}">{{librairy?.nom}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
 
-                        <label class="col-sm-2 text-left control-label col-form-label">Format</label>
-                        <div class="col-md-4">
-                            <select class="select2 form-control custom-select" style="width: 100%; height:36px;"
-                                formControlName="format" ngModel="{{livre.format}}" required> 
-                                <option value="{{livre.format}}" selected> {{livre.format}} </option>
-                                <option value="Ebook">Ebook</option>
-                                <option value="Audio">Audio</option>
-                                <option value="Document">Document</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="cono1" class="col-sm-2 text-left control-label col-form-label">Sommaire du
-                            livre</label>
-                        <div class="col-sm-4">
-                            <textarea class="form-control" formControlName="sommaire" ngModel="{{livre.sommaire}}"></textarea>
-                        </div>
 
-                        <label for="cono1" class="col-sm-2 text-left control-label col-form-label">Description du
-                            livre</label>
-                        <div class="col-sm-4">
-                            <textarea class="form-control" formControlName="description" ngModel="{{livre.description}}">{{livre.description}}</textarea>
+                                <mat-form-field appearance="fill" class="mx-4">
+                                    <mat-label>Type</mat-label>
+                                    <mat-select style="width: 100%; height:36px;" formControlName="format" ngModel="{{livre?.format}}" required>
+                                        <mat-option value="{{livre?.format}}" selected>{{livre?.format}}</mat-option>
+                                        <mat-option value="Ebook">Ebook</mat-option>
+                                        <mat-option value="AudioBook">AudioBook</mat-option>
+                                        <mat-option value="Article">Articles</mat-option>
+                                        <mat-option value="Memoire">Memoires</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
                         </div>
+                        <div class="form-group row">
+
                     </div>
-                </div>
+
+                        <div class="form-group row">
+
+                        <!-- <mat-form-field appearance="fill" class="mx-4">
+                            <mat-label for="">Sommaire du livre</mat-label>
+                            <textarea matInput formControlName="sommaire"></textarea>
+                        </mat-form-field> -->
+                        <mat-form-field appearance="fill" class="mx-4 col-md-11">
+                            <mat-label for="">Description du livre</mat-label>
+                            <textarea matInput formControlName="description" ngModel="{{livre?.description}}"></textarea>
+                        </mat-form-field>
+                    </div>
+
                 <div class="border-top">
                     <div class="card-body">
-                        <button type="submit" class="btn btn-info" [disabled]="">Enregistrer</button>
+                        <button type="submit" [disabled]="" class="btn btn-info mat-elevation-z12" [disabled]="">Enregistrer</button>
                     </div>
                 </div>
             </form>
         </div>
+
+
