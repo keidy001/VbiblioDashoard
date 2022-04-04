@@ -20,14 +20,14 @@ export class UtilisateurService {
 
 
      getAllUtilisateur(){
-       return this.http.get(this.url+"/byStatus/0");
+       return this.http.get(this.url+"/lister");
      }
 
 
      utilisateurById(id:number){
      return this.http.get(this.url+"/afficher/"+id)
     }
-    
+
      deleteAdmin(id:number){
        return this.http.put(this.url+"/disable/"+id,{responseType:'text'});
    }

@@ -3,17 +3,17 @@
 <a class="btn btn-info mb-2 mat-elevation-z12" href="/accueil" >Retour</a>
 <div class="card">
   <div class="card-body">
-    
+
 
     <div class="card">
- 
-                <p-table [value]="utilisateurs"[scrollable]="true" scrollHeight="400px" class="table table-striped table-bordered mat-elevation-z8" 
+
+                <p-table [value]="utilisateurs"[scrollable]="true" scrollHeight="400px" class="table table-striped table-bordered mat-elevation-z8"
                 [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[5,10,25,50]" [loading]="" styleClass="p-datatable-gridlines"
                 [paginator]="true" currentPageReportTemplate="Afficher {first} sur {last} / {totalRecords} Enregistrements"
                 [globalFilterFields]="['nom','prenom','telephone','role']"
                >
                     <ng-template pTemplate="header">
-                        
+
                         <tr>
                           <th >
                               <p-columnFilter type="text"  field="nom"></p-columnFilter>
@@ -25,6 +25,9 @@
                               <p-columnFilter type="text" field="email"></p-columnFilter>
                           </th>
                           <th >
+                              <p-columnFilter type="text" field="telephone"></p-columnFilter>
+                          </th>
+                           <th >
                               <p-columnFilter type="text" field="telephone"></p-columnFilter>
                           </th>
                       </tr>
@@ -40,7 +43,7 @@
                     </tr>
                     </ng-template>
                     <ng-template pTemplate="body" let-utilisateur >
-                        <tr style="">
+                        <tr  class="etat" [ngClass]="utilisateur?.deleted">
                             <!-- <td style="min-width:100px"><img src="{{image}}{{livre.idLivre}}" style="height: 60px;" ></td> -->
                             <td style="min-width:200px">{{utilisateur?.nom}}</td>
                             <td style="min-width:200px">{{utilisateur?.prenom}}</td>
@@ -53,7 +56,7 @@
                            </td>
                         </tr>
                       </ng-template>
-                      
+
                     </p-table>
             </div>
       </div>

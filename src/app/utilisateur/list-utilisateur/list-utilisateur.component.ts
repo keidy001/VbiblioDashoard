@@ -10,14 +10,16 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
   templateUrl: './list-utilisateur.component.html',
   styleUrls: ['./list-utilisateur.component.css']
 })
+
 export class ListUtilisateurComponent implements OnInit {
 
-  
+
   @ViewChild('paginator') paginator! :MatPaginator;
   searchText:any;
   p: number = 1;
   adminData:any;
   toast: any;
+
   utilisateurs:any;
   constructor(
     private utilisateurservice:UtilisateurService,
@@ -40,8 +42,8 @@ export class ListUtilisateurComponent implements OnInit {
 }
 
 desactive(id: number) {
-  
-  
+
+
   Swal.fire({
     title: 'Etes vous sure?',
     text: 'Le compte de cet utilisateur sera désactivé!',
